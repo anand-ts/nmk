@@ -1,7 +1,7 @@
 {
   "name": "Nyamsuren Erdenebayar",
   "description": "Photography and writings by Nyamsuren Erdenebayar.",
-  "intro": "Photography & writings",
+  "intro": "Photography, film & writings",
   "bio": "",
   "projects": [
     {
@@ -315,6 +315,7 @@
   "writings": [
     {
       "title": "The Land Remembers",
+      "article": "the-land-remembers",
       "subtitle": "On Sacred Land and Mountain Worship in Mongolia",
       "publication": "New Nomad Institute",
       "date": "2026-06-10",
@@ -330,6 +331,29 @@
       "displayDate": "",
       "url": "",
       "asset": "darkhad-03"
+    }
+  ],
+  "films": [
+    {
+      "id": "english-film",
+      "title": "Film",
+      "version": "English version",
+      "src": "films/english.mp4",
+      "type": "video/mp4",
+      "poster": "images/film-poster.webp",
+      "duration": "5:10",
+      "width": 1280,
+      "height": 720,
+      "sources": [
+        {
+          "src": "films/english.webm",
+          "type": "video/webm; codecs=\"vp9,opus\""
+        },
+        {
+          "src": "films/english.mp4",
+          "type": "video/mp4"
+        }
+      ]
     }
   ]
 }

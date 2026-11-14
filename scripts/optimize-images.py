@@ -21,32 +21,38 @@ target = root / 'public' / 'images'
 target.mkdir(parents=True, exist_ok=True)
 content = json.loads((root / 'content' / 'portfolio.json').read_text())
 assets = {image['asset'] for project in content['projects'] for image in project['images']}
+writing_assets = {writing['asset'] for writing in content['writings'] if writing.get('asset')}
+required_widths = {asset: (320, 640, 1600) if asset in writing_assets else (640, 1600) for asset in assets}
 manifest_path = root / 'content' / 'assets.json'
 previous = json.loads(manifest_path.read_text()) if manifest_path.exists() else {}
-manifest = {asset: data for asset, data in previous.items() if asset in assets}
+manifest = {asset: {str(width): data[str(width)] for width in required_widths[asset] if str(width) in data} for asset, data in previous.items() if asset in assets}
 pending = []
 jobs = []
 for asset in sorted(assets):
     original = source / (asset + '.jpg')
     entries = manifest.get(asset, {})
-    cached = all(str(width) in entries and (root / 'public' / entries[str(width)]['src']).is_file() for width in (640, 1600))
-    if cached and not args.force:
-        oldest_variant = min((root / 'public' / entries[str(width)]['src']).stat().st_mtime for width in (640, 1600))
-        if not original.exists() or original.stat().st_mtime <= oldest_variant:
-            continue
+    widths = []
+    for width in required_widths[asset]:
+        entry = entries.get(str(width))
+        variant = root / 'public' / entry['src'] if entry else None
+        if args.force or variant is None or not variant.is_file() or (original.is_file() and original.stat().st_mtime > variant.stat().st_mtime):
+            widths.append(width)
+    if not widths:
+        continue
     if not original.is_file():
         pending.append(asset)
         continue
-    jobs.append(asset)
+    jobs.append((asset, widths))
 if pending and not args.available_only:
     raise SystemExit('Missing originals: ' + ', '.join(pending))
 
-def optimize(asset):
+def optimize(job):
+    asset, widths = job
     with Image.open(source / (asset + '.jpg')) as original:
         image = ImageOps.exif_transpose(original).convert('RGB')
     original_width, original_height = image.size
     variants = {}
-    for width in (640, 1600):
+    for width in widths:
         desired_width = min(width, original_width)
         copy = image.resize((desired_width, round(original_height * desired_width / original_width)), Image.Resampling.LANCZOS)
         filename = f'{asset}-{width}.webp'
@@ -56,8 +62,8 @@ def optimize(asset):
 
 with ThreadPoolExecutor(max_workers=3) as executor:
     for asset, variants in executor.map(optimize, jobs):
-        manifest[asset] = variants
+        manifest.setdefault(asset, {}).update(variants)
 temporary = manifest_path.with_suffix('.json.tmp')
 temporary.write_text(json.dumps(dict(sorted(manifest.items())), indent=2) + '\n')
 temporary.replace(manifest_path)
-print(f'Prepared {len(jobs)} photographs; {len(manifest)}/{len(assets)} available in two sizes.' + (f' Waiting for {len(pending)} originals.' if pending else ''))
+print(f'Prepared {sum(len(widths) for _, widths in jobs)} image variants; {len(manifest)}/{len(assets)} photographs available, including writing thumbnails.' + (f' Waiting for {len(pending)} originals.' if pending else ''))

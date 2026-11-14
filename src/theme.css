@@ -1,0 +1,35 @@
+:root[data-theme="light"] { color-scheme: light; }
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --paper: #1b1e1a;
+  --ink: #e9e9df;
+  --muted: #b1b4a7;
+  --line: #44493f;
+  --accent: #bccb9e;
+}
+
+:root[data-theme="dark"] ::selection { background: #465138; color: #f3f4ed; }
+:root[data-theme="dark"] .photograph { background: #292d26; }
+:root[data-theme="dark"] .lightbox { background: var(--paper); }
+:root[data-theme="dark"] .writing--upcoming { color: var(--muted); }
+
+.site-nav { align-items: center; }
+.theme-toggle {
+  display: inline-grid;
+  place-items: center;
+  flex: 0 0 44px;
+  width: 44px;
+  height: 44px;
+  padding: 10px;
+  border: 1px solid transparent;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--ink);
+  cursor: pointer;
+}
+.theme-toggle:hover { border-color: var(--line); }
+.theme-toggle svg { width: 18px; height: 18px; }
+.theme-toggle__moon { display: block; }
+.theme-toggle__sun { display: none; }
+:root[data-theme="dark"] .theme-toggle__moon { display: none; }
+:root[data-theme="dark"] .theme-toggle__sun { display: block; }

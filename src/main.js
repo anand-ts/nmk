@@ -1,5 +1,7 @@
 import { initGallery } from './gallery.js';
+import { initTheme } from './theme.js';
 
+initTheme();
 if (document.querySelector('[data-lightbox]')) initGallery();
 
 // Keep disclosure labels accurate without replacing native <details> behavior.

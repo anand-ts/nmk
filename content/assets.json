@@ -24,6 +24,11 @@
     }
   },
   "darkhad-03": {
+    "320": {
+      "src": "images/darkhad-03-320.webp",
+      "width": 320,
+      "height": 213
+    },
     "640": {
       "src": "images/darkhad-03-640.webp",
       "width": 640,
@@ -552,6 +557,11 @@
     }
   },
   "homeland-02": {
+    "320": {
+      "src": "images/homeland-02-320.webp",
+      "width": 320,
+      "height": 475
+    },
     "640": {
       "src": "images/homeland-02-640.webp",
       "width": 640,

@@ -54,6 +54,7 @@ const types = new Map(Object.entries({
   '.ttf': 'font/ttf',
   '.mp4': 'video/mp4',
   '.webm': 'video/webm',
+  '.vtt': 'text/vtt; charset=utf-8',
   '.pdf': 'application/pdf',
   '.txt': 'text/plain; charset=utf-8',
   '.xml': 'application/xml; charset=utf-8',
@@ -72,6 +73,29 @@ function reply(request, response, status, message, extra = {}) {
     ...extra,
   });
   response.end(request.method === 'HEAD' ? undefined : `${message}\n`);
+}
+
+function parseByteRange(value, size) {
+  if (typeof value !== 'string' || size === 0) return null;
+  // Multiple ranges are unsupported; never interpret a comma-separated list
+  // as a single interval. BigInt avoids rounding oversized client offsets.
+  const match = /^bytes=(\d*)-(\d*)$/i.exec(value.trim());
+  if (!match || (!match[1] && !match[2])) return null;
+  const length = BigInt(size);
+  let start;
+  let end;
+  if (!match[1]) {
+    const suffix = BigInt(match[2]);
+    if (suffix === 0n) return null;
+    start = suffix >= length ? 0n : length - suffix;
+    end = length - 1n;
+  } else {
+    start = BigInt(match[1]);
+    end = match[2] ? BigInt(match[2]) : length - 1n;
+    if (start >= length || end < start) return null;
+    if (end >= length) end = length - 1n;
+  }
+  return { start: Number(start), end: Number(end) };
 }
 
 const server = createServer(async (request, response) => {
@@ -126,16 +150,34 @@ const server = createServer(async (request, response) => {
       return;
     }
 
-    response.writeHead(200, {
+    const headers = {
       'Content-Type': types.get(path.extname(filename).toLowerCase()) || 'application/octet-stream',
       'Content-Length': info.size,
+      'Accept-Ranges': 'bytes',
       'X-Content-Type-Options': 'nosniff',
       'Cache-Control': 'no-store',
-    });
+    };
+    let interval;
+    if (request.headers.range !== undefined) {
+      interval = parseByteRange(request.headers.range, info.size);
+      if (!interval) {
+        response.writeHead(416, {
+          ...headers,
+          'Content-Range': `bytes */${info.size}`,
+          'Content-Length': 0,
+        });
+        response.end();
+        return;
+      }
+      headers['Content-Range'] = `bytes ${interval.start}-${interval.end}/${info.size}`;
+      headers['Content-Length'] = interval.end - interval.start + 1;
+    }
+    response.writeHead(interval ? 206 : 200, headers);
     if (request.method === 'HEAD') response.end();
     else {
-      const stream = createReadStream(filename);
+      const stream = createReadStream(filename, interval);
       stream.on('error', () => response.destroy());
+      response.on('close', () => stream.destroy());
       stream.pipe(response);
     }
   } catch (error) {

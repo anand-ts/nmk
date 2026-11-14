@@ -6,9 +6,9 @@ import { fileURLToPath } from 'node:url';
 
 const root = fileURLToPath(new URL('../', import.meta.url));
 const dist = path.join(root, 'dist');
-const routes = ['index.html', 'writings/index.html', 'contact/index.html'];
-const documents = new Map(await Promise.all(routes.map(async (route) => [route, await readFile(path.join(dist, route), 'utf8')])));
 const content = JSON.parse(await readFile(path.join(root, 'content/portfolio.json'), 'utf8'));
+const routes = ['index.html', 'writings/index.html', 'contact/index.html', ...content.writings.filter(writing => writing.article).map(writing => `writings/${writing.article}/index.html`)];
+const documents = new Map(await Promise.all(routes.map(async (route) => [route, await readFile(path.join(dist, route), 'utf8')])));
 const sources = JSON.parse(await readFile(path.join(root, 'content/media-sources.json'), 'utf8'));
 const assets = JSON.parse(await readFile(path.join(root, 'content/assets.json'), 'utf8'));
 let checkedReferences = 0;
@@ -48,6 +48,7 @@ for (const [route, html] of documents) {
 
 const home = documents.get('index.html');
 const photographs = content.projects.flatMap(project => project.images);
+assert.equal((home.match(/data-film /g) || []).length, (content.films || []).length, 'Every supplied film must be included');
 assert.equal(new Set(photographs.map(image => image.asset)).size, photographs.length, 'A photograph is included more than once');
 assert.deepEqual(photographs.map(image => image.asset).sort(), sources.photographs.map(source => source.asset).sort(), 'Every supplied photograph must be included');
 assert.deepEqual(Object.keys(assets).sort(), photographs.map(image => image.asset).sort(), 'Every photograph needs optimized variants');
@@ -59,7 +60,7 @@ for (const project of content.projects) {
 assert.equal((home.match(/data-lightbox /g) || []).length, content.projects.reduce((sum, project) => sum + project.images.length, 0));
 assert(!documents.get('contact/index.html').includes('site-footer'), 'Contact should remain blank below navigation');
 assert(!/<(?:p|form|button|img)\b/.test(documents.get('contact/index.html').split('<main')[1].split('</main>')[0]), 'Contact body should remain blank');
-for (const filename of ['src/main.js', 'src/gallery.js', 'scripts/build.mjs', 'scripts/serve.mjs']) {
+for (const filename of ['src/main.js', 'src/gallery.js', 'src/theme.js', 'src/theme-init.js', 'scripts/build.mjs', 'scripts/render-writing.mjs', 'scripts/serve.mjs']) {
   const check = spawnSync(process.execPath, ['--check', path.join(root, filename)], { encoding: 'utf8' });
   assert.equal(check.status, 0, check.stderr);
 }

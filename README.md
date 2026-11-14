@@ -32,13 +32,16 @@ The build produces `dist/`, which can be served by any static host. Routes use r
 - `content/portfolio.json`: name, optional bio, project order, descriptions, image order/alt text/captions, video entries, and writings.
 - `content/assets.json`: dimensions and paths for the checked-in image variants.
 - `content/media-sources.json`: source-file inventory used to check that all supplied photographs are included.
+- `content/writings/`: full essays, formatting, captions, references, and their image variants.
 - `src/styles.css`: typography, layout, mobile behavior, and viewer styles.
+- `src/article.css`: essay reading layout.
+- `src/theme.css`, `src/theme-init.js`, and `src/theme.js`: light/dark palette, first-paint preference, and appearance toggle.
 - `src/gallery.js`: photograph viewer.
 - `scripts/build.mjs`: static page templates.
 
 The galleries include all 56 supplied photographs: 35 from Darkhad Migration, 11 from Homeland, and 10 from Earthlings. The first two photographs introduce each series; expanding the gallery reveals the rest, and the photograph viewer includes the entire series. Earthlings follows the supplied numbered sequence after its cover photograph. The other galleries retain their introductory images and append the remaining files in filename order.
 
-Originals remain in Drive; the repository contains WebP derivatives in two widths. The Fuji RAW photograph is represented by a web derivative of its embedded 4416 × 2944 camera JPEG preview. No Drive connection is required by the finished website.
+Originals remain in Drive; the repository contains WebP derivatives in two gallery widths and small 320px variants for writing thumbnails. The Fuji RAW photograph is represented by a web derivative of its embedded 4416 × 2944 camera JPEG preview. No Drive connection is required by the finished website.
 
 To create image variants from local originals, name each JPEG after its asset key in the content file, then run the optional Pillow-based helper:
 
@@ -51,7 +54,7 @@ Image processing is optional for normal builds; all current optimized files are 
 
 ## Add films
 
-Place files in `public/films/` and add entries to a project's `videos` array:
+Place files in `public/films/` and add entries to the top-level `films` array, or to a project's `videos` array when a film belongs to that series:
 
 ```json
 {
@@ -63,11 +66,19 @@ Place files in `public/films/` and add entries to a project's `videos` array:
 }
 ```
 
-Poster and captions are optional. Add captions for films with speech. Players use native controls, do not autoplay, and load on demand. No films were supplied in the initial Drive folder, so no empty film section is displayed.
+The English-version film is included on Home with a poster and native controls. It is encoded at 1280 × 720, with WebM/VP9/Opus first (34.9 MB) and MP4/H.264/AAC as a fallback (47.9 MB). Both preserve the complete 5:10 running time and the source's burned-in English subtitles. The 407.5 MB original is kept outside the repository.
+
+Players do not autoplay and use `preload="none"`. The local preview server supports byte-range requests for playback and seeking. Additional closed captions can be supplied as WebVTT files.
 
 ## Writings
 
-*The Land Remembers* links to its published version at New Nomad Institute. *Moving with the Wild* is shown as a title with “Text to come” until the final text or publication URL is supplied. No biography or project descriptions have been invented; these fields are ready to fill in.
+*The Land Remembers* has a native reading page at `writings/the-land-remembers/`, imported from the supplied Google Doc with its ten photographs, captions, italics, links, and references. A link to the New Nomad Institute publication is retained at the bottom. Its source content is `content/writings/the-land-remembers.json`.
+
+*Moving with the Wild* is shown as a title with “Text to come” until its text is supplied. No biography or project descriptions have been invented; these fields are ready to fill in.
+
+## Appearance
+
+The header button switches between light and dark mode. The initial appearance follows the system; an explicit choice is saved in browser local storage under `portfolio-theme` and shared across all pages. If storage is unavailable, the toggle still works for the current page. Photos retain their original colors.
 
 ## Validation
 

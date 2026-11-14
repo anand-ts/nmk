@@ -94,6 +94,8 @@ export function initGallery() {
     loader.onload = () => {
       if (sequence !== loadSequence) return;
       clearTimeout(loadingTimer);
+      if (document.activeElement === retry) close.focus({ preventScroll: true });
+      retry.hidden = true;
       photograph.src = source;
       photograph.hidden = false;
       status.hidden = true;
