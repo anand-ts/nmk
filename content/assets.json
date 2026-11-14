@@ -1,0 +1,146 @@
+{
+  "darkhad-01": {
+    "640": {
+      "src": "images/darkhad-01-640.webp",
+      "width": 640,
+      "height": 427
+    },
+    "1600": {
+      "src": "images/darkhad-01-1600.webp",
+      "width": 1600,
+      "height": 1067
+    }
+  },
+  "darkhad-02": {
+    "640": {
+      "src": "images/darkhad-02-640.webp",
+      "width": 640,
+      "height": 427
+    },
+    "1600": {
+      "src": "images/darkhad-02-1600.webp",
+      "width": 1600,
+      "height": 1067
+    }
+  },
+  "darkhad-03": {
+    "640": {
+      "src": "images/darkhad-03-640.webp",
+      "width": 640,
+      "height": 427
+    },
+    "1600": {
+      "src": "images/darkhad-03-1600.webp",
+      "width": 1600,
+      "height": 1067
+    }
+  },
+  "darkhad-04": {
+    "640": {
+      "src": "images/darkhad-04-640.webp",
+      "width": 640,
+      "height": 480
+    },
+    "1600": {
+      "src": "images/darkhad-04-1600.webp",
+      "width": 1600,
+      "height": 1201
+    }
+  },
+  "earthlings-enhjin": {
+    "640": {
+      "src": "images/earthlings-enhjin-640.webp",
+      "width": 640,
+      "height": 568
+    },
+    "1600": {
+      "src": "images/earthlings-enhjin-1600.webp",
+      "width": 1600,
+      "height": 1421
+    }
+  },
+  "earthlings-grace": {
+    "640": {
+      "src": "images/earthlings-grace-640.webp",
+      "width": 640,
+      "height": 582
+    },
+    "1600": {
+      "src": "images/earthlings-grace-1600.webp",
+      "width": 1600,
+      "height": 1454
+    }
+  },
+  "earthlings-original": {
+    "640": {
+      "src": "images/earthlings-original-640.webp",
+      "width": 640,
+      "height": 597
+    },
+    "1600": {
+      "src": "images/earthlings-original-1600.webp",
+      "width": 1600,
+      "height": 1492
+    }
+  },
+  "earthlings-pablo": {
+    "640": {
+      "src": "images/earthlings-pablo-640.webp",
+      "width": 640,
+      "height": 575
+    },
+    "1600": {
+      "src": "images/earthlings-pablo-1600.webp",
+      "width": 1600,
+      "height": 1438
+    }
+  },
+  "homeland-01": {
+    "640": {
+      "src": "images/homeland-01-640.webp",
+      "width": 640,
+      "height": 950
+    },
+    "1600": {
+      "src": "images/homeland-01-1600.webp",
+      "width": 1600,
+      "height": 2374
+    }
+  },
+  "homeland-02": {
+    "640": {
+      "src": "images/homeland-02-640.webp",
+      "width": 640,
+      "height": 950
+    },
+    "1600": {
+      "src": "images/homeland-02-1600.webp",
+      "width": 1600,
+      "height": 2374
+    }
+  },
+  "homeland-03": {
+    "640": {
+      "src": "images/homeland-03-640.webp",
+      "width": 640,
+      "height": 431
+    },
+    "1600": {
+      "src": "images/homeland-03-1600.webp",
+      "width": 1600,
+      "height": 1078
+    }
+  },
+  "homeland-04": {
+    "640": {
+      "src": "images/homeland-04-640.webp",
+      "width": 640,
+      "height": 431
+    },
+    "1600": {
+      "src": "images/homeland-04-1600.webp",
+      "width": 1600,
+      "height": 1078
+    }
+  }
+}

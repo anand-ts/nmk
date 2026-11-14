@@ -1,0 +1,67 @@
+{
+  "name": "Nyamsuren Erdenebayar",
+  "description": "Photography and writings by Nyamsuren Erdenebayar.",
+  "intro": "Photography & writings",
+  "bio": "",
+  "projects": [
+    {
+      "id": "darkhad-migration",
+      "title": "Darkhad Migration",
+      "category": "Photographic series",
+      "description": "",
+      "images": [
+        { "asset": "darkhad-01", "alt": "A caravan of loaded yaks crossing an open, snow-covered landscape.", "caption": "Darkhad Migration, 01" },
+        { "asset": "darkhad-02", "alt": "Two people securing a load on a yak among bare trees in the snow.", "caption": "Darkhad Migration, 02" },
+        { "asset": "darkhad-03", "alt": "A line of loaded yaks waiting in a snowy woodland.", "caption": "Darkhad Migration, 03" },
+        { "asset": "darkhad-04", "alt": "A loaded yak facing the camera, with a mountain range beyond the open plain.", "caption": "Darkhad Migration, 04" }
+      ],
+      "videos": []
+    },
+    {
+      "id": "homeland",
+      "title": "Homeland",
+      "category": "Photographic series",
+      "description": "",
+      "images": [
+        { "asset": "homeland-03", "alt": "A person standing beside a tall wooden ovoo on a grassy hill under an overcast sky.", "caption": "Homeland, 01" },
+        { "asset": "homeland-02", "alt": "A small temple on a grassy hillside, with birds flying across the clouded sky.", "caption": "Homeland, 02" },
+        { "asset": "homeland-01", "alt": "A person reaching up toward the branches of a leafy tree.", "caption": "Homeland, 03" },
+        { "asset": "homeland-04", "alt": "A woman and a child working beside a ger in a sunlit landscape.", "caption": "Homeland, 04" }
+      ],
+      "videos": []
+    },
+    {
+      "id": "earthlings",
+      "title": "Earthlings",
+      "category": "Photographic series",
+      "description": "",
+      "images": [
+        { "asset": "earthlings-original", "alt": "Black and white photograph of tree branches seen through a window, with the title Earthlings.", "caption": "Earthlings, 01" },
+        { "asset": "earthlings-pablo", "alt": "Black and white portrait of Pablo holding a glass at an outdoor table, with a caption about a metropolis.", "caption": "Earthlings — Pablo" },
+        { "asset": "earthlings-enhjin", "alt": "Black and white portrait of Enhjin wearing a face mask and holding a cup, captioned Who gets to breathe?", "caption": "Earthlings — Enhjin" },
+        { "asset": "earthlings-grace", "alt": "Black and white portrait of Grace framed by trees, captioned Radically reassessing materialism.", "caption": "Earthlings — Grace" }
+      ],
+      "videos": []
+    }
+  ],
+  "writings": [
+    {
+      "title": "The Land Remembers",
+      "subtitle": "On Sacred Land and Mountain Worship in Mongolia",
+      "publication": "New Nomad Institute",
+      "date": "2026-06-10",
+      "displayDate": "June 2026",
+      "url": "https://www.newnomad.org/posts/the-land-remembers-a-photo-essay-on-sacred-land-and-mountain-worship-in-mongolia",
+      "asset": "homeland-02"
+    },
+    {
+      "title": "Moving with the Wild",
+      "subtitle": "",
+      "publication": "",
+      "date": "",
+      "displayDate": "",
+      "url": "",
+      "asset": "darkhad-03"
+    }
+  ]
+}
