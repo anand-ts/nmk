@@ -83,7 +83,7 @@ A link to the New Nomad Institute publication is retained at the bottom. The art
 
 ## Appearance
 
-The header button switches between light and dark mode. The initial appearance follows the system; an explicit choice is saved in browser local storage under `portfolio-theme` and shared across all pages. If storage is unavailable, the toggle still works for the current page. Photos retain their original colors.
+The header button switches between light and dark mode with a gentle fade of the page colors and borders. Reduced-motion preferences disable the animation, and saved appearance is applied before first paint. The initial appearance follows the system; an explicit choice is saved in browser local storage under `portfolio-theme` and shared across all pages. If storage is unavailable, the toggle still works for the current page. Photos retain their original colors.
 
 ## Validation
 

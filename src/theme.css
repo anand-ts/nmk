@@ -1,3 +1,14 @@
+/* Animate shared colors once so text, rules, and surfaces move together. */
+@property --paper { syntax: "<color>"; inherits: true; initial-value: #f7f6f2; }
+@property --ink { syntax: "<color>"; inherits: true; initial-value: #292a24; }
+@property --muted { syntax: "<color>"; inherits: true; initial-value: #6c6d62; }
+@property --line { syntax: "<color>"; inherits: true; initial-value: #d8d8cf; }
+@property --accent { syntax: "<color>"; inherits: true; initial-value: #626c4e; }
+@property --photo-paper { syntax: "<color>"; inherits: true; initial-value: #e8e6df; }
+@property --selection-paper { syntax: "<color>"; inherits: true; initial-value: #dce0cf; }
+@property --selection-ink { syntax: "<color>"; inherits: true; initial-value: #292a24; }
+@property --upcoming-ink { syntax: "<color>"; inherits: true; initial-value: #64665c; }
+
 :root[data-theme="light"] { color-scheme: light; }
 :root[data-theme="dark"] {
   color-scheme: dark;
@@ -6,12 +17,24 @@
   --muted: #b1b4a7;
   --line: #44493f;
   --accent: #bccb9e;
+  --photo-paper: #292d26;
+  --selection-paper: #465138;
+  --selection-ink: #f3f4ed;
+  --upcoming-ink: #b1b4a7;
 }
 
-:root[data-theme="dark"] ::selection { background: #465138; color: #f3f4ed; }
-:root[data-theme="dark"] .photograph { background: #292d26; }
-:root[data-theme="dark"] .lightbox { background: var(--paper); }
-:root[data-theme="dark"] .writing--upcoming { color: var(--muted); }
+::selection { background: var(--selection-paper); color: var(--selection-ink); }
+.photograph { background: var(--photo-paper); }
+.lightbox { background: var(--paper); }
+.writing--upcoming { color: var(--upcoming-ink); }
+
+:root.theme-transitioning {
+  transition-property: --paper, --ink, --muted, --line, --accent, --photo-paper, --selection-paper, --selection-ink, --upcoming-ink;
+  transition-duration: 340ms;
+  transition-timing-function: ease;
+}
+/* These links already animate color on hover; avoid animating each palette frame twice. */
+:root.theme-transitioning .project-index a { transition: none; }
 
 .site-nav { align-items: center; }
 .theme-toggle {
@@ -28,8 +51,13 @@
   cursor: pointer;
 }
 .theme-toggle:hover { border-color: var(--line); }
-.theme-toggle svg { width: 18px; height: 18px; }
-.theme-toggle__moon { display: block; }
-.theme-toggle__sun { display: none; }
-:root[data-theme="dark"] .theme-toggle__moon { display: none; }
-:root[data-theme="dark"] .theme-toggle__sun { display: block; }
+.theme-toggle svg { grid-area: 1 / 1; width: 18px; height: 18px; }
+.theme-toggle__moon { opacity: 1; }
+.theme-toggle__sun { opacity: 0; }
+:root[data-theme="dark"] .theme-toggle__moon { opacity: 0; }
+:root[data-theme="dark"] .theme-toggle__sun { opacity: 1; }
+:root.theme-transitioning .theme-toggle svg { transition: opacity 340ms ease; }
+
+@media (prefers-reduced-motion: reduce) {
+  :root.theme-transitioning, :root.theme-transitioning .theme-toggle svg { transition: none; }
+}

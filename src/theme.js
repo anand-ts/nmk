@@ -14,9 +14,25 @@ export function initTheme() {
   const root = document.documentElement;
   const buttons = [...document.querySelectorAll('[data-theme-toggle]')];
   const system = window.matchMedia('(prefers-color-scheme: dark)');
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
   let preference = savedTheme();
+  let transitionTimer;
 
-  function apply(theme) {
+  function finishTransition() {
+    clearTimeout(transitionTimer);
+    transitionTimer = undefined;
+    root.classList.remove('theme-transitioning');
+  }
+
+  function apply(theme, { animate = false } = {}) {
+    if (animate && root.dataset.theme !== theme && !reducedMotion.matches) {
+      root.classList.add('theme-transitioning');
+      // Resolve the current palette before changing it, including during rapid toggles.
+      window.getComputedStyle(root).getPropertyValue('--paper');
+      clearTimeout(transitionTimer);
+      // Allow the final animation frame to paint before restoring normal hover timing.
+      transitionTimer = setTimeout(finishTransition, 390);
+    } else if (!animate || reducedMotion.matches) finishTransition();
     root.dataset.theme = theme;
     root.style.colorScheme = theme;
     const dark = theme === 'dark';
@@ -30,29 +46,34 @@ export function initTheme() {
 
   function toggle() {
     preference = root.dataset.theme === 'dark' ? 'light' : 'dark';
-    apply(preference);
+    apply(preference, { animate: true });
     try { localStorage.setItem(STORAGE_KEY, preference); } catch { /* Keep the choice for this page when storage is blocked. */ }
   }
 
   function followSystem(event) {
-    if (!preference) apply(event.matches ? 'dark' : 'light');
+    if (!preference) apply(event.matches ? 'dark' : 'light', { animate: true });
   }
 
   function followStorage(event) {
     if (event.key !== STORAGE_KEY && event.key !== null) return;
     preference = isTheme(event.newValue) ? event.newValue : null;
-    apply(preference || (system.matches ? 'dark' : 'light'));
+    apply(preference || (system.matches ? 'dark' : 'light'), { animate: true });
   }
+
+  function followMotion(event) { if (event.matches) finishTransition(); }
 
   apply(preference || (isTheme(root.dataset.theme) ? root.dataset.theme : system.matches ? 'dark' : 'light'));
   buttons.forEach(button => button.addEventListener('click', toggle));
   system.addEventListener('change', followSystem);
+  reducedMotion.addEventListener('change', followMotion);
   window.addEventListener('storage', followStorage);
 
   const cleanup = () => {
     buttons.forEach(button => button.removeEventListener('click', toggle));
     system.removeEventListener('change', followSystem);
+    reducedMotion.removeEventListener('change', followMotion);
     window.removeEventListener('storage', followStorage);
+    finishTransition();
     if (disposeTheme === cleanup) disposeTheme = undefined;
   };
   disposeTheme = cleanup;
