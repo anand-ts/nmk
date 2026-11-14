@@ -1,0 +1,397 @@
+{
+  "sourceFolderId": "1T9KjidGHkkasIWDa_pC-lGSQ3HQw6Swb",
+  "photographs": [
+    {
+      "asset": "earthlings-original",
+      "project": "earthlings",
+      "driveFileId": "1Mp3pP266NmrFazKcwkBpBGZFi80NVZP0",
+      "filename": "Final 12 - Earthlings.jpg",
+      "mimeType": "image/jpeg"
+    },
+    {
+      "asset": "earthlings-apurva",
+      "project": "earthlings",
+      "driveFileId": "1rKzlIqTMS9bvH36ULlRK7cvyvUU0SLy3",
+      "filename": "Final 11 - Apurva.jpg",
+      "mimeType": "image/jpeg"
+    },
+    {
+      "asset": "earthlings-grace",
+      "project": "earthlings",
+      "driveFileId": "1NZCasizem4gQAHv5gJ1rJ3qqp52KfOeS",
+      "filename": "Final 9 - Grace.jpg",
+      "mimeType": "image/jpeg"
+    },
+    {
+      "asset": "earthlings-nadya",
+      "project": "earthlings",
+      "driveFileId": "1Ic17_jz26R5S_eX7SeeqYnY-c3jhQYH9",
+      "filename": "Final 8 - Nadya.jpg",
+      "mimeType": "image/jpeg"
+    },
+    {
+      "asset": "earthlings-disha",
+      "project": "earthlings",
+      "driveFileId": "1bz8lEhWcfBrfJ4lzMK7shvJkTL11sCuK",
+      "filename": "Final 7 - Disha.jpg",
+      "mimeType": "image/jpeg"
+    },
+    {
+      "asset": "earthlings-shaamyl",
+      "project": "earthlings",
+      "driveFileId": "1WWalx540n5LBcr9wReAEUrtBFM36KoMZ",
+      "filename": "Final 6 - Shaamyl.jpg",
+      "mimeType": "image/jpeg"
+    },
+    {
+      "asset": "earthlings-enhjin",
+      "project": "earthlings",
+      "driveFileId": "1X7PE2giRtb3c8vZLk5_av6rCxEClFU6A",
+      "filename": "Final 5 - Enhjin.jpg",
+      "mimeType": "image/jpeg"
+    },
+    {
+      "asset": "earthlings-ryan",
+      "project": "earthlings",
+      "driveFileId": "1Oz6OOyntOR17hl9yob6pETpMjlahll1t",
+      "filename": "Final 4 - Ryan.jpg",
+      "mimeType": "image/jpeg"
+    },
+    {
+      "asset": "earthlings-olha",
+      "project": "earthlings",
+      "driveFileId": "1oXPebNGEBk-127piD_uHzLw4Gn4oKkcK",
+      "filename": "Final 2 - Olha.jpg",
+      "mimeType": "image/jpeg"
+    },
+    {
+      "asset": "earthlings-pablo",
+      "project": "earthlings",
+      "driveFileId": "1vuqM_Q8eSrjlAEn9tdCIDPkqqhhoayzW",
+      "filename": "Final 1 - Pablo.jpg",
+      "mimeType": "image/jpeg"
+    },
+    {
+      "asset": "homeland-01",
+      "project": "homeland",
+      "driveFileId": "1KlLZHot4HZnffU43sSY6K95zBvsHjreX",
+      "filename": "R1-03858-014A.JPG",
+      "mimeType": "image/jpeg"
+    },
+    {
+      "asset": "homeland-r1-03858-008a",
+      "project": "homeland",
+      "driveFileId": "1quNiaxrrPz59p2V8Jm_zmDGo-wxHIm7w",
+      "filename": "R1-03858-008A.JPG",
+      "mimeType": "image/jpeg"
+    },
+    {
+      "asset": "homeland-r1-03858-003a",
+      "project": "homeland",
+      "driveFileId": "1dFFk1tgOQrzTKaiW6vlN3bUsd5AGSTPb",
+      "filename": "R1-03858-003A.JPG",
+      "mimeType": "image/jpeg"
+    },
+    {
+      "asset": "homeland-r1-03856-008a",
+      "project": "homeland",
+      "driveFileId": "1OY3ZgAJtAA4qUJjiaJ1vkyxq7V_urQfp",
+      "filename": "R1-03856-008A.JPG",
+      "mimeType": "image/jpeg"
+    },
+    {
+      "asset": "homeland-r1-03853-023a",
+      "project": "homeland",
+      "driveFileId": "1JS95VKGsNCY6x5KBRgnd2Citv6xhSQ5z",
+      "filename": "R1-03853-023A.JPG",
+      "mimeType": "image/jpeg"
+    },
+    {
+      "asset": "homeland-02",
+      "project": "homeland",
+      "driveFileId": "1zzFIqBH4qJ1Zy0YlxpEiXSG_hytH7VVk",
+      "filename": "R1-03856-018A.JPG",
+      "mimeType": "image/jpeg"
+    },
+    {
+      "asset": "homeland-r1-03856-028a",
+      "project": "homeland",
+      "driveFileId": "1NyRHrDB24dSkSG-W_RFpN3meS4ZIt2Z5",
+      "filename": "R1-03856-028A.JPG",
+      "mimeType": "image/jpeg"
+    },
+    {
+      "asset": "homeland-r1-03856-017a",
+      "project": "homeland",
+      "driveFileId": "1IwvxOETzUvmMgOUYWIYJzM5n6pSZsnEb",
+      "filename": "R1-03856-017A.JPG",
+      "mimeType": "image/jpeg"
+    },
+    {
+      "asset": "homeland-r1-03856-016a",
+      "project": "homeland",
+      "driveFileId": "1z-K_xNXie-et4drPxWUAPcseMEkGwAg7",
+      "filename": "R1-03856-016A.JPG",
+      "mimeType": "image/jpeg"
+    },
+    {
+      "asset": "homeland-03",
+      "project": "homeland",
+      "driveFileId": "1_mbjD1Zuk4tunvQs8BfYczIy5G1_nRNf",
+      "filename": "R1-03853-031A.JPG",
+      "mimeType": "image/jpeg"
+    },
+    {
+      "asset": "homeland-04",
+      "project": "homeland",
+      "driveFileId": "102axfuMZid5dh_sktSgVZCKTQfymmuko",
+      "filename": "R1-03853-008A.JPG",
+      "mimeType": "image/jpeg"
+    },
+    {
+      "asset": "darkhad-dscf4543",
+      "project": "darkhad-migration",
+      "driveFileId": "1iKx-UVJq9r-Ebm80TI7-UP50dzer8oHC",
+      "filename": "DSCF4543.RAF",
+      "mimeType": "image/x-fuji-raf"
+    },
+    {
+      "asset": "darkhad-01",
+      "project": "darkhad-migration",
+      "driveFileId": "1N-fviJxELZc0FMOo-duMtY5Wtq8kTYB4",
+      "filename": "DSCF4483.JPG",
+      "mimeType": "image/jpeg"
+    },
+    {
+      "asset": "darkhad-dscf4400",
+      "project": "darkhad-migration",
+      "driveFileId": "1dMuqiU18x0b4E_bqvuCpFAuNhalGL7j-",
+      "filename": "DSCF4400.JPG",
+      "mimeType": "image/jpeg"
+    },
+    {
+      "asset": "darkhad-dscf4353",
+      "project": "darkhad-migration",
+      "driveFileId": "1WtnOgmHfM3tSkeSYAE0MgtRHUPFn8d6k",
+      "filename": "DSCF4353.JPG",
+      "mimeType": "image/jpeg"
+    },
+    {
+      "asset": "darkhad-dscf4343",
+      "project": "darkhad-migration",
+      "driveFileId": "1Lpbr62RRCN11G5AbCOAeIcizT6YIQkyj",
+      "filename": "DSCF4343.JPG",
+      "mimeType": "image/jpeg"
+    },
+    {
+      "asset": "darkhad-dscf4334",
+      "project": "darkhad-migration",
+      "driveFileId": "1qjJOVsHF0YI2LJzvG778SI_YpKKYR_DJ",
+      "filename": "DSCF4334.JPG",
+      "mimeType": "image/jpeg"
+    },
+    {
+      "asset": "darkhad-dscf0315",
+      "project": "darkhad-migration",
+      "driveFileId": "1rtfi2u4lceVl1-WnFB505jYiHKmh1kfo",
+      "filename": "DSCF0315.JPG",
+      "mimeType": "image/jpeg"
+    },
+    {
+      "asset": "darkhad-02",
+      "project": "darkhad-migration",
+      "driveFileId": "1FCxuaody4GeEp2rCfj7OguxCReb_GjoL",
+      "filename": "DSCF4256.JPG",
+      "mimeType": "image/jpeg"
+    },
+    {
+      "asset": "darkhad-dscf3971",
+      "project": "darkhad-migration",
+      "driveFileId": "1f1ac-iLV6I3IBB0ayuQ7Qs2sTXQJit5z",
+      "filename": "DSCF3971.JPG",
+      "mimeType": "image/jpeg"
+    },
+    {
+      "asset": "darkhad-03",
+      "project": "darkhad-migration",
+      "driveFileId": "1LlO0MKzWAG8CMFr0hR-qiRK9DFhYC1g3",
+      "filename": "DSCF3950 copy.JPG",
+      "mimeType": "image/jpeg"
+    },
+    {
+      "asset": "darkhad-dscf3948",
+      "project": "darkhad-migration",
+      "driveFileId": "1ASEsp5S67qDcwRWrZUYOKQn2ONzj1QAy",
+      "filename": "DSCF3948.JPG",
+      "mimeType": "image/jpeg"
+    },
+    {
+      "asset": "darkhad-dscf3932",
+      "project": "darkhad-migration",
+      "driveFileId": "1AwUxgjj3_oPVNeopCvFE4Dl-K_qarsQd",
+      "filename": "DSCF3932.JPG",
+      "mimeType": "image/jpeg"
+    },
+    {
+      "asset": "darkhad-dscf3913",
+      "project": "darkhad-migration",
+      "driveFileId": "1vNGohCPHQMsokHQPg8wlIqVGakD_gUUI",
+      "filename": "DSCF3913.JPG",
+      "mimeType": "image/jpeg"
+    },
+    {
+      "asset": "darkhad-dscf3906",
+      "project": "darkhad-migration",
+      "driveFileId": "1gvpaKUl24MHn8lO-43UICwRmiJAHUaRc",
+      "filename": "DSCF3906.JPG",
+      "mimeType": "image/jpeg"
+    },
+    {
+      "asset": "darkhad-dscf3867",
+      "project": "darkhad-migration",
+      "driveFileId": "1T0mwtrJuRp6PfI_7ZAAzh2UGKNfFuoCw",
+      "filename": "DSCF3867.JPG",
+      "mimeType": "image/jpeg"
+    },
+    {
+      "asset": "darkhad-dscf3822",
+      "project": "darkhad-migration",
+      "driveFileId": "1Chybl6H3psJ_MiUChHvnBFNi6ZfmFUih",
+      "filename": "DSCF3822.JPG",
+      "mimeType": "image/jpeg"
+    },
+    {
+      "asset": "darkhad-dscf3762",
+      "project": "darkhad-migration",
+      "driveFileId": "1Mvp0-Uyr4FXreYbE7OHggyHKah20qZ6X",
+      "filename": "DSCF3762.JPG",
+      "mimeType": "image/jpeg"
+    },
+    {
+      "asset": "darkhad-dscf3725",
+      "project": "darkhad-migration",
+      "driveFileId": "13grmzEABCBsl2GYpx3aTWftF7oSKTlFD",
+      "filename": "DSCF3725.JPG",
+      "mimeType": "image/jpeg"
+    },
+    {
+      "asset": "darkhad-dscf3470",
+      "project": "darkhad-migration",
+      "driveFileId": "1CpYlCS0B2pMb4zb5WX9gR_rdqKO_YFGk",
+      "filename": "DSCF3470.JPG",
+      "mimeType": "image/jpeg"
+    },
+    {
+      "asset": "darkhad-dscf3453",
+      "project": "darkhad-migration",
+      "driveFileId": "1uaZ7eKXBeCqhLcI9BA_r81wZ7JoYVvie",
+      "filename": "DSCF3453.JPG",
+      "mimeType": "image/jpeg"
+    },
+    {
+      "asset": "darkhad-dscf3415",
+      "project": "darkhad-migration",
+      "driveFileId": "1EIScqgPwdRZC9TwMLJ0mjBNHUgsNxwK1",
+      "filename": "DSCF3415.JPG",
+      "mimeType": "image/jpeg"
+    },
+    {
+      "asset": "darkhad-dscf3141",
+      "project": "darkhad-migration",
+      "driveFileId": "1HspkLqiiakCD-2iYb_WSsEnF7D8iKvXa",
+      "filename": "DSCF3141.JPG",
+      "mimeType": "image/jpeg"
+    },
+    {
+      "asset": "darkhad-dscf3120",
+      "project": "darkhad-migration",
+      "driveFileId": "1zOgH-z3NVDWIX6FiuQAtjhB2NiwI9POr",
+      "filename": "DSCF3120.JPG",
+      "mimeType": "image/jpeg"
+    },
+    {
+      "asset": "darkhad-dscf3105",
+      "project": "darkhad-migration",
+      "driveFileId": "1kQL5iSVabhx3ri2inS5300_46377FBIC",
+      "filename": "DSCF3105.JPG",
+      "mimeType": "image/jpeg"
+    },
+    {
+      "asset": "darkhad-dscf2980",
+      "project": "darkhad-migration",
+      "driveFileId": "1o4wVejGgYCS3aha-D1b4vL7aQDwx0Bmg",
+      "filename": "DSCF2980.JPG",
+      "mimeType": "image/jpeg"
+    },
+    {
+      "asset": "darkhad-dscf2955",
+      "project": "darkhad-migration",
+      "driveFileId": "1ui6xcqzO9JTiH0s8r6WHvmJavh1NggTR",
+      "filename": "DSCF2955.JPG",
+      "mimeType": "image/jpeg"
+    },
+    {
+      "asset": "darkhad-dscf2949",
+      "project": "darkhad-migration",
+      "driveFileId": "160_SRXqJVD-RbVIRFZ93RlNZN7I4TMZ6",
+      "filename": "DSCF2949.JPG",
+      "mimeType": "image/jpeg"
+    },
+    {
+      "asset": "darkhad-dscf2902",
+      "project": "darkhad-migration",
+      "driveFileId": "1jpasiALgn9ONVLt14VZ-Rslzd2fZ4DKE",
+      "filename": "DSCF2902.JPG",
+      "mimeType": "image/jpeg"
+    },
+    {
+      "asset": "darkhad-dscf2870",
+      "project": "darkhad-migration",
+      "driveFileId": "1geJ0KYWUHG9o3Izh4WTmrmOLkKqYTd1V",
+      "filename": "DSCF2870.JPG",
+      "mimeType": "image/jpeg"
+    },
+    {
+      "asset": "darkhad-04",
+      "project": "darkhad-migration",
+      "driveFileId": "197qHYI-uXq3Wr9O42BLseBUK3fG03wyB",
+      "filename": "DSCF2718.jpg",
+      "mimeType": "image/jpeg"
+    },
+    {
+      "asset": "darkhad-dscf2664",
+      "project": "darkhad-migration",
+      "driveFileId": "1EbywRpuAOLb1GonhrVVjL517CNXZZQpn",
+      "filename": "DSCF2664.JPG",
+      "mimeType": "image/jpeg"
+    },
+    {
+      "asset": "darkhad-dscf2659",
+      "project": "darkhad-migration",
+      "driveFileId": "1RLf8p_cIbjK_Xfn0iEzCHE24_8B6xqBk",
+      "filename": "DSCF2659.JPG",
+      "mimeType": "image/jpeg"
+    },
+    {
+      "asset": "darkhad-dscf2637",
+      "project": "darkhad-migration",
+      "driveFileId": "1EXi611WorqK-QH7am6JO-Q6YMsuIyCt4",
+      "filename": "DSCF2637 copy.JPG",
+      "mimeType": "image/jpeg"
+    },
+    {
+      "asset": "darkhad-dscf2564",
+      "project": "darkhad-migration",
+      "driveFileId": "17-tExizylDufEc20eh6vyKilOZWR4UdG",
+      "filename": "DSCF2564.JPG",
+      "mimeType": "image/jpeg"
+    },
+    {
+      "asset": "darkhad-dscf2491",
+      "project": "darkhad-migration",
+      "driveFileId": "1dEXcH99KU88S0TfuhDGOCQbIIsR6KVnK",
+      "filename": "DSCF2491.JPG",
+      "mimeType": "image/jpeg"
+    }
+  ]
+}

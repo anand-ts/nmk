@@ -69,14 +69,14 @@ function projectSection(project, index) {
       <div class="eyebrow"><span>${number}</span><span>${escape(project.category)}</span></div>
       <h2 id="${escape(project.id)}-title">${escape(project.title)}</h2>
       ${project.description ? `<p class="project__description">${escape(project.description)}</p>` : ''}
-      <p class="project__selection">Selected photographs</p>
+      <p class="project__selection">${project.images.length} photographs</p>
       <nav class="project-index" aria-label="Photographic series">
         ${content.projects.map((item, itemIndex) => `<a href="#${escape(item.id)}"${item.id === project.id ? ' aria-current="location"' : ''}><span>${String(itemIndex + 1).padStart(2, '0')}</span><span>${escape(item.title)}</span><span class="project-index__arrow" aria-hidden="true">↗</span></a>`).join('')}
       </nav>
     </aside>
     <div class="project__gallery">
       ${series.slice(0, 2).join('\n')}
-      ${remaining > 0 ? `<details class="series-disclosure" data-series-disclosure><summary><span data-disclosure-label>View the full selection</span><span class="series-disclosure__count">${String(series.length).padStart(2, '0')} photographs</span><span class="series-disclosure__icon" aria-hidden="true">+</span></summary><div class="series-disclosure__images">${series.slice(2).join('\n')}</div></details>` : ''}
+      ${remaining > 0 ? `<details class="series-disclosure" data-series-disclosure><summary><span data-disclosure-label>View all photographs</span><span class="series-disclosure__count">${String(series.length).padStart(2, '0')} photographs</span><span class="series-disclosure__icon" aria-hidden="true">+</span></summary><div class="series-disclosure__images">${series.slice(2).join('\n')}</div></details>` : ''}
       ${videos}
     </div>
   </section>`;

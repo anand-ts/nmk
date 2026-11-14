@@ -6,7 +6,7 @@ if (document.querySelector('[data-lightbox]')) initGallery();
 document.querySelectorAll('[data-series-disclosure]').forEach((details) => {
   const label = details.querySelector('[data-disclosure-label]');
   details.addEventListener('toggle', () => {
-    if (label) label.textContent = details.open ? 'Show fewer photographs' : 'View the full selection';
+    if (label) label.textContent = details.open ? 'Show fewer photographs' : 'View all photographs';
   });
 });
 

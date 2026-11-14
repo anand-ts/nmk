@@ -10,10 +10,181 @@
       "category": "Photographic series",
       "description": "",
       "images": [
-        { "asset": "darkhad-01", "alt": "A caravan of loaded yaks crossing an open, snow-covered landscape.", "caption": "Darkhad Migration, 01" },
-        { "asset": "darkhad-02", "alt": "Two people securing a load on a yak among bare trees in the snow.", "caption": "Darkhad Migration, 02" },
-        { "asset": "darkhad-03", "alt": "A line of loaded yaks waiting in a snowy woodland.", "caption": "Darkhad Migration, 03" },
-        { "asset": "darkhad-04", "alt": "A loaded yak facing the camera, with a mountain range beyond the open plain.", "caption": "Darkhad Migration, 04" }
+        {
+          "asset": "darkhad-01",
+          "alt": "Loaded yaks stand beside a wooden sled in a snow-covered valley.",
+          "caption": "Darkhad Migration, 01"
+        },
+        {
+          "asset": "darkhad-02",
+          "alt": "Two people secure rolls and bundles on a yak standing among snow-covered trees.",
+          "caption": "Darkhad Migration, 02"
+        },
+        {
+          "asset": "darkhad-03",
+          "alt": "A group of loaded yaks stands among tree trunks in a snow-covered woodland.",
+          "caption": "Darkhad Migration, 03"
+        },
+        {
+          "asset": "darkhad-04",
+          "alt": "A loaded yak faces the camera with boxes strapped to its sides and a snow-capped mountain range in the distance.",
+          "caption": "Darkhad Migration, 04"
+        },
+        {
+          "asset": "darkhad-dscf0315",
+          "alt": "Snow-covered yaks carrying packs approach between trees, with one looking toward the camera.",
+          "caption": "Darkhad Migration, 05"
+        },
+        {
+          "asset": "darkhad-dscf2491",
+          "alt": "A person in a red patterned coat lifts a yellow circular wooden roof frame overhead against a clear blue sky.",
+          "caption": "Darkhad Migration, 06"
+        },
+        {
+          "asset": "darkhad-dscf2564",
+          "alt": "A loaded black yak fills the foreground, with an open plain and snow-capped mountains behind.",
+          "caption": "Darkhad Migration, 07"
+        },
+        {
+          "asset": "darkhad-dscf2637",
+          "alt": "A person in a red headscarf holds a white bowl beside bottles, bundled bags, and cookware on an open plain.",
+          "caption": "Darkhad Migration, 08"
+        },
+        {
+          "asset": "darkhad-dscf2659",
+          "alt": "People stand among blankets, containers, and wooden ger parts spread across a dry plain, with mountains on the horizon.",
+          "caption": "Darkhad Migration, 09"
+        },
+        {
+          "asset": "darkhad-dscf2664",
+          "alt": "Folded coverings, wooden parts, and household belongings lie across an open plain beneath a bright sun, with people and mountains in the distance.",
+          "caption": "Darkhad Migration, 10"
+        },
+        {
+          "asset": "darkhad-dscf2870",
+          "alt": "A wooden box with patterned red fabric rests on dry grass, with a yak and tall trees behind.",
+          "caption": "Darkhad Migration, 11"
+        },
+        {
+          "asset": "darkhad-dscf2902",
+          "alt": "Snow-capped mountains are framed by an open wooden doorframe, viewed at an angle.",
+          "caption": "Darkhad Migration, 12"
+        },
+        {
+          "asset": "darkhad-dscf2949",
+          "alt": "A person in a long red coat carries a bundle of orange wooden poles beside a fence, with snowy mountains beyond.",
+          "caption": "Darkhad Migration, 13"
+        },
+        {
+          "asset": "darkhad-dscf2955",
+          "alt": "Close view of a person in a red patterned coat fastening the wooden lattice of a ger.",
+          "caption": "Darkhad Migration, 14"
+        },
+        {
+          "asset": "darkhad-dscf2980",
+          "alt": "A bare wooden ger frame stands among tall trees in warm sunlight.",
+          "caption": "Darkhad Migration, 15"
+        },
+        {
+          "asset": "darkhad-dscf3105",
+          "alt": "An orange wooden door and a yellow wooden ring lean against a fence, with snowy mountains beyond.",
+          "caption": "Darkhad Migration, 16"
+        },
+        {
+          "asset": "darkhad-dscf3120",
+          "alt": "A loaded black-and-white yak is tethered to a tree, with folded blankets and wooden boxes strapped to its back.",
+          "caption": "Darkhad Migration, 17"
+        },
+        {
+          "asset": "darkhad-dscf3141",
+          "alt": "A person sits on the ground near two people and a motorcycle among tall trees.",
+          "caption": "Darkhad Migration, 18"
+        },
+        {
+          "asset": "darkhad-dscf3415",
+          "alt": "A herd of yaks stretches along the floor of a snowy valley below forested mountain slopes.",
+          "caption": "Darkhad Migration, 19"
+        },
+        {
+          "asset": "darkhad-dscf3453",
+          "alt": "A rider in a bright red coat sits on a gray horse beside a herd of yaks in a snowy mountain valley.",
+          "caption": "Darkhad Migration, 20"
+        },
+        {
+          "asset": "darkhad-dscf3470",
+          "alt": "A large herd of yaks stretches across a snowy plain beneath a jagged mountain and forested slopes.",
+          "caption": "Darkhad Migration, 21"
+        },
+        {
+          "asset": "darkhad-dscf3725",
+          "alt": "A herd of shaggy yaks walks away along a snowy track between trees.",
+          "caption": "Darkhad Migration, 22"
+        },
+        {
+          "asset": "darkhad-dscf3762",
+          "alt": "A line of yaks follows a narrow path through a steep, snow-dusted mountain valley.",
+          "caption": "Darkhad Migration, 23"
+        },
+        {
+          "asset": "darkhad-dscf3822",
+          "alt": "A person stands beside a stone cairn topped with colorful cloths, with rocky mountains behind.",
+          "caption": "Darkhad Migration, 24"
+        },
+        {
+          "asset": "darkhad-dscf3867",
+          "alt": "A person holds a brown horse beside a rider on a white horse, with a dog nearby and mountains behind.",
+          "caption": "Darkhad Migration, 25"
+        },
+        {
+          "asset": "darkhad-dscf3906",
+          "alt": "Two people arrange folded blankets and other bundles on a yak as snow falls.",
+          "caption": "Darkhad Migration, 26"
+        },
+        {
+          "asset": "darkhad-dscf3913",
+          "alt": "A person rests a hand on a loaded yak in a woodland during falling snow.",
+          "caption": "Darkhad Migration, 27"
+        },
+        {
+          "asset": "darkhad-dscf3932",
+          "alt": "A person bends at the doorway of a ger while loaded yaks wait among snowy trees.",
+          "caption": "Darkhad Migration, 28"
+        },
+        {
+          "asset": "darkhad-dscf3948",
+          "alt": "A loaded yak stands close to a tree, with more yaks gathered behind it in the snow.",
+          "caption": "Darkhad Migration, 29"
+        },
+        {
+          "asset": "darkhad-dscf3971",
+          "alt": "Several loaded yaks stand among tall trees on snow-covered ground.",
+          "caption": "Darkhad Migration, 30"
+        },
+        {
+          "asset": "darkhad-dscf4334",
+          "alt": "Snow blankets the back and bulky pack of a black yak standing in deep snow.",
+          "caption": "Darkhad Migration, 31"
+        },
+        {
+          "asset": "darkhad-dscf4343",
+          "alt": "A person reaches into the open doorway of a snow-covered ger among trees.",
+          "caption": "Darkhad Migration, 32"
+        },
+        {
+          "asset": "darkhad-dscf4353",
+          "alt": "A pale horse with snow on its mane and back stands beside a tree.",
+          "caption": "Darkhad Migration, 33"
+        },
+        {
+          "asset": "darkhad-dscf4400",
+          "alt": "A long line of yaks forms a dark band beneath a steep, snow-covered mountainside.",
+          "caption": "Darkhad Migration, 34"
+        },
+        {
+          "asset": "darkhad-dscf4543",
+          "alt": "A person stands by the doorway of a ger while another bends over nearby, surrounded by snow-covered hills.",
+          "caption": "Darkhad Migration, 35"
+        }
       ],
       "videos": []
     },
@@ -23,10 +194,61 @@
       "category": "Photographic series",
       "description": "",
       "images": [
-        { "asset": "homeland-03", "alt": "A person standing beside a tall wooden ovoo on a grassy hill under an overcast sky.", "caption": "Homeland, 01" },
-        { "asset": "homeland-02", "alt": "A small temple on a grassy hillside, with birds flying across the clouded sky.", "caption": "Homeland, 02" },
-        { "asset": "homeland-01", "alt": "A person reaching up toward the branches of a leafy tree.", "caption": "Homeland, 03" },
-        { "asset": "homeland-04", "alt": "A woman and a child working beside a ger in a sunlit landscape.", "caption": "Homeland, 04" }
+        {
+          "asset": "homeland-03",
+          "alt": "A person standing beside a tall wooden ovoo on a grassy hill under an overcast sky.",
+          "caption": "Homeland, 01"
+        },
+        {
+          "asset": "homeland-02",
+          "alt": "A small temple on a grassy hillside, with birds flying across the clouded sky.",
+          "caption": "Homeland, 02"
+        },
+        {
+          "asset": "homeland-01",
+          "alt": "A person reaching up toward the branches of a leafy tree.",
+          "caption": "Homeland, 03"
+        },
+        {
+          "asset": "homeland-04",
+          "alt": "A woman and a child working beside a ger in a sunlit landscape.",
+          "caption": "Homeland, 04"
+        },
+        {
+          "asset": "homeland-r1-03853-023a",
+          "alt": "The brightly painted wooden doorway of a white ger, with hills in the distance.",
+          "caption": "Homeland, 05"
+        },
+        {
+          "asset": "homeland-r1-03856-008a",
+          "alt": "A person standing on a broad open hillside beneath white clouds.",
+          "caption": "Homeland, 06"
+        },
+        {
+          "asset": "homeland-r1-03856-016a",
+          "alt": "An ornate temple on a green hillside beneath low clouds and flying birds.",
+          "caption": "Homeland, 07"
+        },
+        {
+          "asset": "homeland-r1-03856-017a",
+          "alt": "People gathered on a grassy slope below a mountain partly covered by clouds.",
+          "caption": "Homeland, 08"
+        },
+        {
+          "asset": "homeland-r1-03856-028a",
+          "alt": "Two people riding a shaggy yak beside other grazing yaks in a grassy valley.",
+          "caption": "Homeland, 09"
+        },
+        {
+          "asset": "homeland-r1-03858-003a",
+          "alt": "Two people in brown and purple traditional clothing, one standing and one seated on the grass.",
+          "caption": "Homeland, 10"
+        },
+        {
+          "asset": "homeland-r1-03858-008a",
+          "alt": "Two women in blue and red traditional clothing standing together in an open landscape.",
+          "caption": "Homeland, 11"
+        }
       ],
       "videos": []
     },
@@ -36,10 +258,56 @@
       "category": "Photographic series",
       "description": "",
       "images": [
-        { "asset": "earthlings-original", "alt": "Black and white photograph of tree branches seen through a window, with the title Earthlings.", "caption": "Earthlings, 01" },
-        { "asset": "earthlings-pablo", "alt": "Black and white portrait of Pablo holding a glass at an outdoor table, with a caption about a metropolis.", "caption": "Earthlings — Pablo" },
-        { "asset": "earthlings-enhjin", "alt": "Black and white portrait of Enhjin wearing a face mask and holding a cup, captioned Who gets to breathe?", "caption": "Earthlings — Enhjin" },
-        { "asset": "earthlings-grace", "alt": "Black and white portrait of Grace framed by trees, captioned Radically reassessing materialism.", "caption": "Earthlings — Grace" }
+        {
+          "asset": "earthlings-original",
+          "alt": "Black and white photograph of tree branches seen through a window, with the title Earthlings.",
+          "caption": "Earthlings, 01"
+        },
+        {
+          "asset": "earthlings-pablo",
+          "alt": "Black and white portrait of Pablo holding a glass at an outdoor table, with a caption about a metropolis.",
+          "caption": "Earthlings — Pablo"
+        },
+        {
+          "asset": "earthlings-olha",
+          "alt": "Black and white portrait of Olha standing on a residential street, captioned Buried by overconsumption.",
+          "caption": "Earthlings — Olha"
+        },
+        {
+          "asset": "earthlings-ryan",
+          "alt": "Black and white portrait of Ryan holding a cup in front of a brick wall.",
+          "caption": "Earthlings — Ryan"
+        },
+        {
+          "asset": "earthlings-enhjin",
+          "alt": "Black and white portrait of Enhjin wearing a face mask and holding a cup, captioned Who gets to breathe?",
+          "caption": "Earthlings — Enhjin"
+        },
+        {
+          "asset": "earthlings-shaamyl",
+          "alt": "Black and white portrait of Shaamyl beside a street, with words about societal and technological responses to climate change.",
+          "caption": "Earthlings — Shaamyl"
+        },
+        {
+          "asset": "earthlings-disha",
+          "alt": "Black and white portrait of Disha beside a brick building, with words about sustainable eating and ethical living.",
+          "caption": "Earthlings — Disha"
+        },
+        {
+          "asset": "earthlings-nadya",
+          "alt": "Black and white portrait of Nadya among bare trees, with a question about deforestation and family trees.",
+          "caption": "Earthlings — Nadya"
+        },
+        {
+          "asset": "earthlings-grace",
+          "alt": "Black and white portrait of Grace framed by trees, captioned Radically reassessing materialism.",
+          "caption": "Earthlings — Grace"
+        },
+        {
+          "asset": "earthlings-apurva",
+          "alt": "Black and white portrait of Apurva standing near a petrol station, with a question about phasing out fossil fuels.",
+          "caption": "Earthlings — Apurva"
+        }
       ],
       "videos": []
     }

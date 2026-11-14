@@ -9,6 +9,8 @@ const dist = path.join(root, 'dist');
 const routes = ['index.html', 'writings/index.html', 'contact/index.html'];
 const documents = new Map(await Promise.all(routes.map(async (route) => [route, await readFile(path.join(dist, route), 'utf8')])));
 const content = JSON.parse(await readFile(path.join(root, 'content/portfolio.json'), 'utf8'));
+const sources = JSON.parse(await readFile(path.join(root, 'content/media-sources.json'), 'utf8'));
+const assets = JSON.parse(await readFile(path.join(root, 'content/assets.json'), 'utf8'));
 let checkedReferences = 0;
 
 async function checkReference(value, route) {
@@ -45,9 +47,14 @@ for (const [route, html] of documents) {
 }
 
 const home = documents.get('index.html');
+const photographs = content.projects.flatMap(project => project.images);
+assert.equal(new Set(photographs.map(image => image.asset)).size, photographs.length, 'A photograph is included more than once');
+assert.deepEqual(photographs.map(image => image.asset).sort(), sources.photographs.map(source => source.asset).sort(), 'Every supplied photograph must be included');
+assert.deepEqual(Object.keys(assets).sort(), photographs.map(image => image.asset).sort(), 'Every photograph needs optimized variants');
 for (const project of content.projects) {
   assert(project.images.length >= 1, `${project.title} needs a photograph`);
   assert(home.includes(`id="${project.id}"`), `Missing series: ${project.title}`);
+  assert.equal(project.images.length, sources.photographs.filter(source => source.project === project.id).length, `Incomplete series: ${project.title}`);
 }
 assert.equal((home.match(/data-lightbox /g) || []).length, content.projects.reduce((sum, project) => sum + project.images.length, 0));
 assert(!documents.get('contact/index.html').includes('site-footer'), 'Contact should remain blank below navigation');
