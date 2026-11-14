@@ -3,6 +3,8 @@ import { initTheme } from './theme.js';
 
 initTheme();
 if (document.querySelector('[data-lightbox]')) initGallery();
+// Decorative motion should never block the theme toggle or photograph viewer.
+import('./motion.js').then(({ initMotion }) => initMotion()).catch(() => {});
 
 // Reading progress belongs to the page, so both columns share one natural scroll.
 const progress = document.querySelector('[data-scroll-progress]');

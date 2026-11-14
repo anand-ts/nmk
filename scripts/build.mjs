@@ -50,6 +50,7 @@ function frame(page, body, options = {}) {
   ${options.article ? `<link rel="stylesheet" href="${prefix}assets/article.css">` : ''}
   ${options.project ? `<link rel="stylesheet" href="${prefix}assets/project.css">` : ''}
   <link rel="stylesheet" href="${prefix}assets/theme.css">
+  <link rel="stylesheet" href="${prefix}assets/motion.css">
   <script type="module" src="${prefix}assets/main.js"></script>
 </head>
 <body class="page page--${page}">
@@ -117,7 +118,7 @@ await mkdir(path.join(dist, 'assets'), { recursive: true });
 await mkdir(path.join(dist, 'writings'), { recursive: true });
 await mkdir(path.join(dist, 'contact'), { recursive: true });
 await cp(path.join(root, 'public'), dist, { recursive: true });
-await Promise.all(['main.js', 'gallery.js', 'styles.css', 'article.css', 'project.css', 'theme.js', 'theme-init.js', 'theme.css'].map((filename) => cp(path.join(root, 'src', filename), path.join(dist, 'assets', filename))));
+await Promise.all(['main.js', 'gallery.js', 'styles.css', 'article.css', 'project.css', 'theme.js', 'theme-init.js', 'theme.css', 'motion.js', 'motion.css'].map((filename) => cp(path.join(root, 'src', filename), path.join(dist, 'assets', filename))));
 await writeFile(path.join(dist, 'index.html'), frame('home', home));
 await writeFile(path.join(dist, 'writings/index.html'), frame('writings', writings));
 await writeFile(path.join(dist, 'contact/index.html'), frame('contact', '<main id="main" class="contact-blank" tabindex="-1" aria-label="Contact"><h1 class="visually-hidden">Contact</h1></main>'));

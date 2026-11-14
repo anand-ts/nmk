@@ -39,6 +39,7 @@ For Vercel, import the repository with its root directory unchanged. `vercel.jso
 - `src/article.css`: essay reading layout.
 - `src/project.css` and `scripts/render-project.mjs`: project grid pages and their responsive layout.
 - `src/theme.css`, `src/theme-init.js`, and `src/theme.js`: light/dark palette, first-paint preference, and appearance toggle.
+- `src/motion.js` and `src/motion.css`: subtle page entrances, scroll reveals, gallery stagger, and photograph-viewer fades.
 - `src/gallery.js`: photograph viewer.
 - `scripts/build.mjs`: static page templates.
 
@@ -84,6 +85,8 @@ A link to the New Nomad Institute publication is retained at the bottom. The art
 ## Appearance
 
 The header button switches between light and dark mode with a gentle fade of the page colors and borders. Reduced-motion preferences disable the animation, and saved appearance is applied before first paint. The initial appearance follows the system; an explicit choice is saved in browser local storage under `portfolio-theme` and shared across all pages. If storage is unavailable, the toggle still works for the current page. Photos retain their original colors.
+
+Content fades in with a small upward movement when it first enters view, with a short stagger across gallery rows. Sticky containers retain their normal scrolling behavior. Keyboard focus, direct anchors, and history restoration show the relevant content immediately; reduced motion and printing skip the effects. Content remains visible when JavaScript or observation is unavailable. The photograph viewer uses brief opening and image fades without delaying dismissal.
 
 ## Validation
 

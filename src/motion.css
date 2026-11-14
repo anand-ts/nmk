@@ -1,0 +1,17 @@
+/* Nothing is prehidden: unsupported JavaScript or observation leaves normal content. */
+[data-motion-state="revealing"] { will-change: opacity, transform; }
+
+.lightbox[open] { animation: lightbox-entrance 180ms ease-out; }
+.lightbox__image:not([hidden]) { animation: photograph-entrance 220ms ease-out; }
+@keyframes lightbox-entrance { from { opacity: 0; } to { opacity: 1; } }
+@keyframes photograph-entrance { from { opacity: 0; } to { opacity: 1; } }
+
+@media (prefers-reduced-motion: reduce) {
+  [data-motion-reveal] { opacity: 1 !important; transform: none !important; }
+  .lightbox, .lightbox__image { animation: none !important; }
+}
+
+@media print {
+  [data-motion-reveal] { opacity: 1 !important; transform: none !important; animation: none !important; transition: none !important; }
+  .lightbox, .lightbox__image { animation: none !important; }
+}
