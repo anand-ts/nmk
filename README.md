@@ -1,8 +1,8 @@
 # Nyamsuren Erdenebayar
 
-A lightweight photography and writing portfolio. Three pages: Home, Writings, and a Contact page whose body is intentionally blank.
+A lightweight photography and writing portfolio with three main navigation items: Home, Writings, and Contact. Project galleries and essay reading pages open within those sections. The Contact page body is intentionally blank.
 
-The homepage pairs project information with photographs. On desktop, the left column sticks within its project section and releases at the section's end. Mobile uses a single column. Galleries expand in place and open in a keyboard-accessible photograph viewer.
+The homepage pairs project information with large preview photographs. On desktop, the left column sticks within its project section and releases at the section's end. Mobile uses a single column. Clicking a project title, project-list entry, preview photograph, or “View all photographs” link opens that project's grid gallery. Every grid photograph opens in a keyboard-accessible viewer.
 
 ## Run locally
 
@@ -37,11 +37,12 @@ For Vercel, import the repository with its root directory unchanged. `vercel.jso
 - `content/writings/`: full essays, formatting, captions, references, and their image variants.
 - `src/styles.css`: typography, layout, mobile behavior, and viewer styles.
 - `src/article.css`: essay reading layout.
+- `src/project.css` and `scripts/render-project.mjs`: project grid pages and their responsive layout.
 - `src/theme.css`, `src/theme-init.js`, and `src/theme.js`: light/dark palette, first-paint preference, and appearance toggle.
 - `src/gallery.js`: photograph viewer.
 - `scripts/build.mjs`: static page templates.
 
-The galleries include all 56 supplied photographs: 35 from Darkhad Migration, 11 from Homeland, and 10 from Earthlings. The first two photographs introduce each series; expanding the gallery reveals the rest, and the photograph viewer includes the entire series. Earthlings follows the supplied numbered sequence after its cover photograph. The other galleries retain their introductory images and append the remaining files in filename order.
+The galleries include all 56 supplied photographs: 35 from Darkhad Migration, 11 from Homeland, and 10 from Earthlings. The first two photographs introduce each series on Home. Its dedicated grid at `projects/<project-id>/` displays the entire series, with three columns on desktop and two on smaller screens. Thumbnails preserve the complete photograph, and the viewer provides a larger image. Earthlings follows the supplied numbered sequence after its cover photograph. The other galleries retain their introductory images and append the remaining files in filename order.
 
 Originals remain in Drive; the repository contains WebP derivatives in two gallery widths and small 320px variants for writing thumbnails. The Fuji RAW photograph is represented by a web derivative of its embedded 4416 × 2944 camera JPEG preview. No Drive connection is required by the finished website.
 

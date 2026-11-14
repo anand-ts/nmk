@@ -2,6 +2,7 @@ import { readFile, writeFile, mkdir, rm, cp } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { renderWritingArticle } from './render-writing.mjs';
+import { renderProjectGallery } from './render-project.mjs';
 
 const root = fileURLToPath(new URL('../', import.meta.url));
 const content = JSON.parse(await readFile(path.join(root, 'content/portfolio.json'), 'utf8'));
@@ -11,14 +12,15 @@ const dist = path.join(root, 'dist');
 const escape = (value = '') => String(value).replace(/[&<>"']/g, (character) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[character]));
 const arrow = '<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 19 19 5M5 5h14v14" stroke="currentColor" stroke-width="1.2"/></svg>';
 
-function photograph(image, prefix, { eager = false, className = '', lightbox = false, series = '', thumbnail = false } = {}) {
+function photograph(image, prefix, { eager = false, className = '', lightbox = false, series = '', thumbnail = false, grid = false, href = '', linkLabel = '' } = {}) {
   const sizes = assets[image.asset];
   if (!sizes) throw new Error(`Missing asset metadata: ${image.asset}`);
   const small = sizes[thumbnail ? '320' : '640'];
   const large = sizes[thumbnail ? '640' : '1600'];
   const fallback = thumbnail ? small : large;
-  const responsiveSizes = thumbnail ? '(max-width: 760px) 67px, (max-width: 1100px) 82px, 115px' : '(max-width: 760px) calc(100vw - 40px), (max-width: 1100px) 62vw, 64vw';
+  const responsiveSizes = thumbnail ? '(max-width: 760px) 67px, (max-width: 1100px) 82px, 115px' : grid ? '(max-width: 760px) calc((100vw - 56px) / 2), (max-width: 1100px) calc((100vw - 84px) / 2), (min-width: 1600px) 476px, 29vw' : '(max-width: 760px) calc(100vw - 40px), (max-width: 1100px) 62vw, 64vw';
   const markup = `<img src="${prefix}${fallback.src}" srcset="${prefix}${small.src} ${small.width}w, ${prefix}${large.src} ${large.width}w" sizes="${responsiveSizes}" width="${fallback.width}" height="${fallback.height}" alt="${escape(image.alt)}" loading="${eager ? 'eager' : 'lazy'}" decoding="async"${eager ? ' fetchpriority="high"' : ''}>`;
+  if (href) return `<a class="photograph project-preview ${className}" href="${escape(href)}" aria-label="${escape(linkLabel || image.alt)}">${markup}<span class="photograph__enlarge" aria-hidden="true">${arrow}</span></a>`;
   return lightbox
     ? `<button class="photograph ${className}" type="button" data-lightbox data-src="${prefix}${large.src}" data-alt="${escape(image.alt)}" data-caption="${escape(image.caption)}" data-series="${escape(series)}" aria-label="Enlarge photograph: ${escape(image.alt)} (${escape(image.caption)})">${markup}<span class="photograph__enlarge" aria-hidden="true">${arrow}</span></button>`
     : `<span class="photograph ${className}">${markup}</span>`;
@@ -46,6 +48,7 @@ function frame(page, body, options = {}) {
   <link rel="icon" href="${prefix}favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="${prefix}assets/styles.css">
   ${options.article ? `<link rel="stylesheet" href="${prefix}assets/article.css">` : ''}
+  ${options.project ? `<link rel="stylesheet" href="${prefix}assets/project.css">` : ''}
   <link rel="stylesheet" href="${prefix}assets/theme.css">
   <script type="module" src="${prefix}assets/main.js"></script>
 </head>
@@ -67,25 +70,25 @@ function frame(page, body, options = {}) {
 
 function projectSection(project, index) {
   const number = String(index + 1).padStart(2, '0');
-  const series = project.images.map((image, imageIndex) => `<figure class="gallery__item${imageIndex === 1 && project.id === 'homeland' ? ' gallery__item--portrait' : ''}">
-    ${photograph(image, './', { eager: index === 0 && imageIndex === 0, lightbox: true, series: project.id })}
+  const projectHref = `./projects/${project.id}/`;
+  const series = project.images.slice(0, 2).map((image, imageIndex) => `<figure class="gallery__item${imageIndex === 1 && project.id === 'homeland' ? ' gallery__item--portrait' : ''}">
+    ${photograph(image, './', { eager: index === 0 && imageIndex === 0, href: projectHref, linkLabel: `View ${project.title}: ${image.alt}` })}
     <figcaption><span>${escape(image.caption)}</span><span class="image-index">${String(imageIndex + 1).padStart(2, '0')} / ${String(project.images.length).padStart(2, '0')}</span></figcaption>
   </figure>`);
-  const remaining = series.length - 2;
   const videos = (project.videos || []).map((video) => `<figure class="gallery__item"><video controls playsinline preload="none"${video.poster ? ` poster="./${escape(video.poster)}"` : ''} aria-label="${escape(video.title)}"><source src="./${escape(video.src)}" type="${escape(video.type || 'video/mp4')}">${video.captions ? `<track kind="captions" src="./${escape(video.captions)}" srclang="en" label="English" default>` : ''}<p>Your browser cannot play this film. <a href="./${escape(video.src)}">Download ${escape(video.title)}</a>.</p></video><figcaption>${escape(video.title)}</figcaption></figure>`).join('');
   return `<section class="project" id="${escape(project.id)}" aria-labelledby="${escape(project.id)}-title">
     <aside class="project__aside">
       <div class="eyebrow"><span>${number}</span><span>${escape(project.category)}</span></div>
-      <h2 id="${escape(project.id)}-title">${escape(project.title)}</h2>
+      <h2 id="${escape(project.id)}-title"><a class="project__title-link" href="${projectHref}">${escape(project.title)} <span aria-hidden="true">↗</span></a></h2>
       ${project.description ? `<p class="project__description">${escape(project.description)}</p>` : ''}
       <p class="project__selection">${project.images.length} photographs</p>
       <nav class="project-index" aria-label="Photographic series">
-        ${content.projects.map((item, itemIndex) => `<a href="#${escape(item.id)}"${item.id === project.id ? ' aria-current="location"' : ''}><span>${String(itemIndex + 1).padStart(2, '0')}</span><span>${escape(item.title)}</span><span class="project-index__arrow" aria-hidden="true">↗</span></a>`).join('')}
+        ${content.projects.map((item, itemIndex) => `<a href="./projects/${escape(item.id)}/"${item.id === project.id ? ' class="project-index__link--active"' : ''}><span>${String(itemIndex + 1).padStart(2, '0')}</span><span>${escape(item.title)}</span><span class="project-index__arrow" aria-hidden="true">↗</span></a>`).join('')}
       </nav>
     </aside>
     <div class="project__gallery">
-      ${series.slice(0, 2).join('\n')}
-      ${remaining > 0 ? `<details class="series-disclosure" data-series-disclosure><summary><span data-disclosure-label>View all photographs</span><span class="series-disclosure__count">${String(series.length).padStart(2, '0')} photographs</span><span class="series-disclosure__icon" aria-hidden="true">+</span></summary><div class="series-disclosure__images">${series.slice(2).join('\n')}</div></details>` : ''}
+      ${series.join('\n')}
+      <a class="project__view-link" href="${projectHref}"><span>View all ${project.images.length} photographs</span>${arrow}</a>
       ${videos}
     </div>
   </section>`;
@@ -114,7 +117,7 @@ await mkdir(path.join(dist, 'assets'), { recursive: true });
 await mkdir(path.join(dist, 'writings'), { recursive: true });
 await mkdir(path.join(dist, 'contact'), { recursive: true });
 await cp(path.join(root, 'public'), dist, { recursive: true });
-await Promise.all(['main.js', 'gallery.js', 'styles.css', 'article.css', 'theme.js', 'theme-init.js', 'theme.css'].map((filename) => cp(path.join(root, 'src', filename), path.join(dist, 'assets', filename))));
+await Promise.all(['main.js', 'gallery.js', 'styles.css', 'article.css', 'project.css', 'theme.js', 'theme-init.js', 'theme.css'].map((filename) => cp(path.join(root, 'src', filename), path.join(dist, 'assets', filename))));
 await writeFile(path.join(dist, 'index.html'), frame('home', home));
 await writeFile(path.join(dist, 'writings/index.html'), frame('writings', writings));
 await writeFile(path.join(dist, 'contact/index.html'), frame('contact', '<main id="main" class="contact-blank" tabindex="-1" aria-label="Contact"><h1 class="visually-hidden">Contact</h1></main>'));
@@ -122,4 +125,8 @@ for (const [slug, article] of articles) {
   await mkdir(path.join(dist, 'writings', slug), { recursive: true });
   await writeFile(path.join(dist, 'writings', slug, 'index.html'), frame('writings', renderWritingArticle(article), { prefix: '../../', title: `${article.title} — ${content.name}`, description: article.subtitle, article: true }));
 }
-console.log(`Built ${3 + articles.size} pages with ${Object.keys(assets).length} gallery photographs, ${[...articles.values()].reduce((total, article) => total + Object.keys(article.images || {}).length, 0)} essay images, and ${(content.films || []).length} film.`);
+for (const project of content.projects) {
+  await mkdir(path.join(dist, 'projects', project.id), { recursive: true });
+  await writeFile(path.join(dist, 'projects', project.id, 'index.html'), frame('home', renderProjectGallery(project, { photograph }), { prefix: '../../', project: true, title: `${project.title} — ${content.name}`, description: project.description || `${project.images.length} photographs from ${project.title} by ${content.name}.` }));
+}
+console.log(`Built ${3 + articles.size + content.projects.length} pages with ${Object.keys(assets).length} gallery photographs, ${[...articles.values()].reduce((total, article) => total + Object.keys(article.images || {}).length, 0)} essay images, and ${(content.films || []).length} film.`);

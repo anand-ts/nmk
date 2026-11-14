@@ -10,7 +10,7 @@ const hosting = JSON.parse(await readFile(path.join(root, 'vercel.json'), 'utf8'
 assert.equal(hosting.trailingSlash, true, 'Directory pages require canonical trailing-slash URLs');
 assert.equal(hosting.outputDirectory, 'dist', 'Vercel must serve the built website');
 const content = JSON.parse(await readFile(path.join(root, 'content/portfolio.json'), 'utf8'));
-const routes = ['index.html', 'writings/index.html', 'contact/index.html', ...content.writings.filter(writing => writing.article).map(writing => `writings/${writing.article}/index.html`)];
+const routes = ['index.html', 'writings/index.html', 'contact/index.html', ...content.writings.filter(writing => writing.article).map(writing => `writings/${writing.article}/index.html`), ...content.projects.map(project => `projects/${project.id}/index.html`)];
 const documents = new Map(await Promise.all(routes.map(async (route) => [route, await readFile(path.join(dist, route), 'utf8')])));
 const sources = JSON.parse(await readFile(path.join(root, 'content/media-sources.json'), 'utf8'));
 const assets = JSON.parse(await readFile(path.join(root, 'content/assets.json'), 'utf8'));
@@ -59,11 +59,15 @@ for (const project of content.projects) {
   assert(project.images.length >= 1, `${project.title} needs a photograph`);
   assert(home.includes(`id="${project.id}"`), `Missing series: ${project.title}`);
   assert.equal(project.images.length, sources.photographs.filter(source => source.project === project.id).length, `Incomplete series: ${project.title}`);
+  const grid = documents.get(`projects/${project.id}/index.html`);
+  assert.equal((grid.match(/data-lightbox /g) || []).length, project.images.length, `Every photograph must appear in the ${project.title} grid`);
+  for (const image of project.images) assert(grid.includes(`data-src="../../${assets[image.asset]['1600'].src}"`), `Missing grid photograph: ${image.asset}`);
+  assert(home.includes(`href="./projects/${project.id}/"`), `Home must link to the ${project.title} grid`);
 }
-assert.equal((home.match(/data-lightbox /g) || []).length, content.projects.reduce((sum, project) => sum + project.images.length, 0));
+assert.equal((home.match(/class="photograph project-preview /g) || []).length, content.projects.reduce((sum, project) => sum + Math.min(2, project.images.length), 0), 'Home must show project previews');
 assert(!documents.get('contact/index.html').includes('site-footer'), 'Contact should remain blank below navigation');
 assert(!/<(?:p|form|button|img)\b/.test(documents.get('contact/index.html').split('<main')[1].split('</main>')[0]), 'Contact body should remain blank');
-for (const filename of ['src/main.js', 'src/gallery.js', 'src/theme.js', 'src/theme-init.js', 'scripts/build.mjs', 'scripts/render-writing.mjs', 'scripts/serve.mjs']) {
+for (const filename of ['src/main.js', 'src/gallery.js', 'src/theme.js', 'src/theme-init.js', 'scripts/build.mjs', 'scripts/render-writing.mjs', 'scripts/render-project.mjs', 'scripts/serve.mjs']) {
   const check = spawnSync(process.execPath, ['--check', path.join(root, filename)], { encoding: 'utf8' });
   assert.equal(check.status, 0, check.stderr);
 }
