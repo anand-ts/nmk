@@ -27,6 +27,8 @@ npm run check
 
 The build produces `dist/`, which can be served by any static host. Routes use relative URLs and work beneath a subdirectory as well as a domain root. The Sites identity is kept in `.openai/hosting.json`; creation alone does not mean it is deployed.
 
+For Vercel, import the repository with its root directory unchanged. `vercel.json` supplies the static build command and `dist` output directory. Directory pages are redirected to URLs ending in `/`, matching the local preview and keeping relative essay links correct when visitors open slashless URLs directly.
+
 ## Edit content
 
 - `content/portfolio.json`: name, optional bio, project order, descriptions, image order/alt text/captions, video entries, and writings.

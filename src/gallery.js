@@ -50,6 +50,11 @@ export function initGallery() {
   let loadingTimer;
   let restoredScroll = false;
 
+  function hideRetry() {
+    if (document.activeElement === retry) close.focus({ preventScroll: true });
+    retry.hidden = true;
+  }
+
   function render() {
     const selected = photographs[position];
     if (!selected) return;
@@ -67,7 +72,7 @@ export function initGallery() {
     photograph.alt = alt;
     status.hidden = false;
     status.textContent = 'Loading photograph…';
-    retry.hidden = true;
+    hideRetry();
     caption.textContent = description;
     counter.textContent = `${position + 1} / ${photographs.length}`;
     previous.hidden = next.hidden = photographs.length < 2;
@@ -94,8 +99,7 @@ export function initGallery() {
     loader.onload = () => {
       if (sequence !== loadSequence) return;
       clearTimeout(loadingTimer);
-      if (document.activeElement === retry) close.focus({ preventScroll: true });
-      retry.hidden = true;
+      hideRetry();
       photograph.src = source;
       photograph.hidden = false;
       status.hidden = true;
@@ -168,11 +172,7 @@ export function initGallery() {
   close.addEventListener('click', () => dialog.close());
   previous.addEventListener('click', () => move(-1));
   next.addEventListener('click', () => move(1));
-  retry.addEventListener('click', () => {
-    render();
-    // The retry control hides during loading, so retain a visible focus target.
-    close.focus({ preventScroll: true });
-  });
+  retry.addEventListener('click', render);
 
   const cleanup = () => {
     document.removeEventListener('click', open);

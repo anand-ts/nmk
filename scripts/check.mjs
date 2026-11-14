@@ -6,6 +6,9 @@ import { fileURLToPath } from 'node:url';
 
 const root = fileURLToPath(new URL('../', import.meta.url));
 const dist = path.join(root, 'dist');
+const hosting = JSON.parse(await readFile(path.join(root, 'vercel.json'), 'utf8'));
+assert.equal(hosting.trailingSlash, true, 'Directory pages require canonical trailing-slash URLs');
+assert.equal(hosting.outputDirectory, 'dist', 'Vercel must serve the built website');
 const content = JSON.parse(await readFile(path.join(root, 'content/portfolio.json'), 'utf8'));
 const routes = ['index.html', 'writings/index.html', 'contact/index.html', ...content.writings.filter(writing => writing.article).map(writing => `writings/${writing.article}/index.html`)];
 const documents = new Map(await Promise.all(routes.map(async (route) => [route, await readFile(path.join(dist, route), 'utf8')])));
