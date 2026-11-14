@@ -75,7 +75,9 @@ Players do not autoplay and use `preload="none"`. The local preview server suppo
 
 ## Writings
 
-*The Land Remembers* has a native reading page at `writings/the-land-remembers/`, imported from the supplied Google Doc with its ten photographs, captions, italics, links, and references. A link to the New Nomad Institute publication is retained at the bottom. Its source content is `content/writings/the-land-remembers.json`.
+*The Land Remembers* has a native reading page at `writings/the-land-remembers/`, imported from the latest supplied Google Doc with photographs from `Writing Photos / The Land Remembers`. Its eleven numbered photographs follow the manuscript's placement markers; the 4 + 5, 6 + 7, and 8 + 11 pairs remain side by side. Each photograph opens in the shared viewer. Captions, italics, links, references, and paragraph order are preserved, while placement instructions are omitted from the published text.
+
+A link to the New Nomad Institute publication is retained at the bottom. The article, source-file mapping, and image metadata are in `content/writings/the-land-remembers.json`.
 
 *Moving with the Wild* is shown as a title with “Text to come” until its text is supplied. No biography or project descriptions have been invented; these fields are ready to fill in.
 

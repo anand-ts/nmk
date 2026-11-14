@@ -22,12 +22,26 @@ function renderRuns(runs = []) {
 }
 
 function renderFigure(block, article, prefix) {
-  const variants = article.images?.[block.asset];
-  const small = variants?.['640'];
-  const large = variants?.['1600'];
-  if (!small || !large) throw new Error(`Missing essay image variants: ${block.asset}`);
-  return `<figure class="essay__figure">
-    <img src="${escape(prefix + large.src)}" srcset="${escape(prefix + small.src)} ${small.width}w, ${escape(prefix + large.src)} ${large.width}w" sizes="(max-width: 760px) calc(100vw - 40px), (max-width: 1100px) calc(100vw - 64px), 1000px" width="${large.width}" height="${large.height}" alt="${escape(block.alt)}" loading="lazy" decoding="async">
+  const images = Array.isArray(block.images) ? block.images : [{ asset: block.asset, alt: block.alt, number: block.number }];
+  if (!images.length) throw new Error('An essay figure must contain at least one photograph.');
+  const paired = images.length > 1;
+  const markerNumbers = Array.isArray(block.markerNumbers) ? block.markerNumbers : images.map(image => image.number).filter(number => number !== undefined);
+  const sizes = paired
+    ? '(max-width: 760px) calc((100vw - 50px) / 2), (max-width: 1064px) calc((100vw - 82px) / 2), 491px'
+    : '(max-width: 760px) calc(100vw - 40px), (max-width: 1100px) calc(100vw - 64px), 1000px';
+  const photographs = images.map((image, index) => {
+    const variants = article.images?.[image.asset];
+    const small = variants?.['640'];
+    const large = variants?.['1600'];
+    if (!small || !large) throw new Error(`Missing essay image variants: ${image.asset}`);
+    const alt = image.alt || block.alt || block.caption || `${article.title}, photograph ${image.number ?? index + 1}`;
+    return `<button class="photograph essay__photo" type="button" data-lightbox data-src="${escape(prefix + large.src)}" data-alt="${escape(alt)}" data-caption="${escape(block.caption || '')}" data-series="${escape('essay-' + article.slug)}" aria-label="Enlarge photograph: ${escape(alt)}">
+      <img src="${escape(prefix + large.src)}" srcset="${escape(prefix + small.src)} ${small.width}w, ${escape(prefix + large.src)} ${large.width}w" sizes="${sizes}" width="${large.width}" height="${large.height}" alt="${escape(alt)}" loading="lazy" decoding="async">
+      <span class="photograph__enlarge" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M5 19 19 5M5 5h14v14" stroke="currentColor" stroke-width="1.2"/></svg></span>
+    </button>`;
+  }).join('\n');
+  return `<figure class="essay__figure${paired ? ' essay__figure--paired' : ''}" data-marker-numbers="${escape(markerNumbers.join(','))}">
+    <div class="essay__image-row">${photographs}</div>
     ${block.caption ? `<figcaption>${escape(block.caption)}</figcaption>` : ''}
   </figure>`;
 }

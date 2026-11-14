@@ -11,7 +11,77 @@
   },
   "source": {
     "documentId": "1VYtib_7AmfN6sVzUYoEYD1o2sWkpvQ4xpZspNxtPMcI",
-    "tabId": "t.0"
+    "tabId": "t.0",
+    "revisionId": "AHj4eMQRWMJs90ZCb3pMNJK64unN-d1IahpPQX16ryb4_1mx8gD7ofJ3gkxitL_fiYchMklhXRVU1MC5fsP1pG6nsnAs_26HAqQ1VkGr5Bc",
+    "photoFolderId": "149tL39Dd3ZugLx-5JG3AhkaWBFMM4pB3",
+    "photos": [
+      {
+        "number": 1,
+        "filename": "1.png",
+        "driveFileId": "1H1qyiikCnWKYfYWrCXnuCkAM1S6f2aSu",
+        "asset": "land-remembers-01"
+      },
+      {
+        "number": 2,
+        "filename": "2.JPG",
+        "driveFileId": "1yG-AlSs7NT0M5MDpHDJMjmfZeCnSE-j_",
+        "asset": "land-remembers-02"
+      },
+      {
+        "number": 3,
+        "filename": "3.png",
+        "driveFileId": "1HWoubg72_u56OAUQH0s89HAZP5dz0wc1",
+        "asset": "land-remembers-03"
+      },
+      {
+        "number": 4,
+        "filename": "4.JPG",
+        "driveFileId": "1hG1Q3h1NITm0ZqL2FbhVqJecQZvjwp89",
+        "asset": "land-remembers-04"
+      },
+      {
+        "number": 5,
+        "filename": "5.JPG",
+        "driveFileId": "1AAFObY9DzRo2JPe9OdwKFUBZC028xbBw",
+        "asset": "land-remembers-05"
+      },
+      {
+        "number": 6,
+        "filename": "6.JPG",
+        "driveFileId": "1eB9MXDiMlZGx2uAf_One9Ew9ycwuIYyv",
+        "asset": "land-remembers-06"
+      },
+      {
+        "number": 7,
+        "filename": "7.JPG",
+        "driveFileId": "1fUOjW25pJQlaFOyCrRWKe2oV6tSkOKlo",
+        "asset": "land-remembers-07"
+      },
+      {
+        "number": 8,
+        "filename": "8.JPG",
+        "driveFileId": "19ll5JTwlWZiuqfSrZHbJjOiFpwuIoA12",
+        "asset": "land-remembers-08"
+      },
+      {
+        "number": 9,
+        "filename": "9.png",
+        "driveFileId": "1kcU3CEHx08l5neC7IJl-3-_7PjKmFCDj",
+        "asset": "land-remembers-09"
+      },
+      {
+        "number": 10,
+        "filename": "10.JPG",
+        "driveFileId": "1nwbfKwKiOkR0lSuV9zbKJ11H0GSY7PBg",
+        "asset": "land-remembers-10"
+      },
+      {
+        "number": 11,
+        "filename": "11.JPG",
+        "driveFileId": "1E0NScnkQvwo8UupjKmTOj4ePHiifHS8d",
+        "asset": "land-remembers-11"
+      }
+    ]
   },
   "blocks": [
     {
@@ -32,7 +102,7 @@
           "italic": true
         },
         {
-          "text": "is how Mongolians greet the morning, acknowledge the land beneath them, and maintain our relationship with the spirits of mountains, rivers, and sky. For generations, the female head of a Mongolian household has offered milk to the sky as an ordinary daily practice. "
+          "text": "is how Mongolians greet the morning, acknowledge the land beneath them, and maintain our relationship with the spirits of mountains, rivers, and sky. For generations, the female head of a Mongolian household has offered milk to the sky as a daily practice. "
         }
       ]
     },
@@ -53,9 +123,17 @@
     },
     {
       "type": "figure",
-      "asset": "land-remembers-01",
-      "caption": "Peak of Otgontenger Khairkhan. Otgon Soum, Zavkhan Province, August 2023. All photographs by the author.",
-      "alt": "Peak of Otgontenger Khairkhan. Otgon Soum, Zavkhan Province, August 2023. All photographs by the author."
+      "markerNumbers": [
+        1
+      ],
+      "images": [
+        {
+          "number": 1,
+          "asset": "land-remembers-01",
+          "alt": "Snow-capped mountains rise beyond a broad green valley beneath a clouded sky."
+        }
+      ],
+      "caption": "Peak of Otgontenger Khairkhan. Otgon Soum, Zavkhan Province, August 2023. All photographs by the author."
     },
     {
       "type": "paragraph",
@@ -94,14 +172,6 @@
       "type": "paragraph",
       "runs": [
         {
-          "text": "It is a place that chose you and has been in a reciprocal relationship with your ancestors long enough that the relationship itself becomes part of who you are. "
-        }
-      ]
-    },
-    {
-      "type": "paragraph",
-      "runs": [
-        {
           "text": "Zavkhan Province, my "
         },
         {
@@ -115,9 +185,17 @@
     },
     {
       "type": "figure",
-      "asset": "land-remembers-02",
-      "caption": "Offerings at the foot of Ochirvaani Burkhan. Otgontenger Khairkhan beyond. Zavkhan Province, August 2024.",
-      "alt": "Offerings at the foot of Ochirvaani Burkhan. Otgontenger Khairkhan beyond. Zavkhan Province, August 2024."
+      "markerNumbers": [
+        2
+      ],
+      "images": [
+        {
+          "number": 2,
+          "asset": "land-remembers-02",
+          "alt": "Offerings beneath the legs of a weathered statue, with mountains visible beyond."
+        }
+      ],
+      "caption": "Offerings at the foot of Ochirvaani Burkhan. Otgontenger Khairkhan beyond. Zavkhan Province, August 2024."
     },
     {
       "type": "paragraph",
@@ -136,9 +214,17 @@
     },
     {
       "type": "figure",
-      "asset": "land-remembers-03",
-      "caption": "Women making offerings below Otgontenger Khairkhan while the men venture to Badar Khundaga Lake. Otgon Soum, Zavkhan Province, August 2023.",
-      "alt": "Women making offerings below Otgontenger Khairkhan while the men venture to Badar Khundaga Lake. Otgon Soum, Zavkhan Province, August 2023."
+      "markerNumbers": [
+        3
+      ],
+      "images": [
+        {
+          "number": 3,
+          "asset": "land-remembers-03",
+          "alt": "People gathered on a grassy hillside below a mountain partly covered by clouds."
+        }
+      ],
+      "caption": "Women making offerings below Otgontenger Khairkhan while the men venture to Badar Khundaga Lake. Otgon Soum, Zavkhan Province, August 2023."
     },
     {
       "type": "paragraph",
@@ -209,28 +295,35 @@
       "type": "paragraph",
       "runs": [
         {
-          "text": "After the monks complete the morning chants, the day opens into celebration. Any bad deed or unkind word is prohibited during land worship ceremonies. People arrive in their cherished/gangan traditional "
+          "text": "After the monks complete the morning chants, the day opens into celebration. Any bad deed or unkind word is forbidden during land worship ceremonies. People arrive in their "
         },
         {
-          "text": "deel, ",
-          "italic": true
+          "text": "treasured"
         },
         {
-          "text": "the silk robes reserved for occasions worth dressing up for. The wrestling, horse races, children riding out across the steppe are all part of the offering. Joy is the highest offering of all."
+          "text": " traditional deel, the silk robes reserved for occasions worth dressing up for. The wrestling, the horse races, and the children riding out across the steppe are all part of the offering. Joy is the highest offering of all."
         }
       ]
     },
     {
       "type": "figure",
-      "asset": "land-remembers-04",
-      "caption": "",
-      "alt": "People gathered on an open plain, with a child in a red shirt in the foreground."
-    },
-    {
-      "type": "figure",
-      "asset": "land-remembers-05",
-      "caption": "Tahilga festivities: wrestling, long song, and communal feasts. Herlen Toono Mountain, May 2026.",
-      "alt": "Tahilga festivities: wrestling, long song, and communal feasts. Herlen Toono Mountain, May 2026."
+      "markerNumbers": [
+        4,
+        5
+      ],
+      "images": [
+        {
+          "number": 4,
+          "asset": "land-remembers-04",
+          "alt": "People gather on an open plain, with a child in a red shirt in the foreground."
+        },
+        {
+          "number": 5,
+          "asset": "land-remembers-05",
+          "alt": "People gathered beside a blue tent on an open plain."
+        }
+      ],
+      "caption": "Tahilga festivities: wrestling, long song, and communal feasts. Herlen Toono Mountain, May 2026."
     },
     {
       "type": "paragraph",
@@ -278,15 +371,23 @@
     },
     {
       "type": "figure",
-      "asset": "land-remembers-06",
-      "caption": "",
-      "alt": "A group of riders and horses assembled on an open grassy plain."
-    },
-    {
-      "type": "figure",
-      "asset": "land-remembers-07",
-      "caption": "Before the race, jockey children walking their horses. Delgerkhaan Soum, Khentii Province. May 2026.",
-      "alt": "Before the race, jockey children walking their horses. Delgerkhaan Soum, Khentii Province. May 2026."
+      "markerNumbers": [
+        6,
+        7
+      ],
+      "images": [
+        {
+          "number": 6,
+          "asset": "land-remembers-06",
+          "alt": "A group of riders and horses assembled on an open grassy plain."
+        },
+        {
+          "number": 7,
+          "asset": "land-remembers-07",
+          "alt": "Young horse riders approach across an open grassy plain."
+        }
+      ],
+      "caption": "Before the race, jockey children walking their horses. Delgerkhaan Soum, Khentii Province. May 2026."
     },
     {
       "type": "paragraph",
@@ -319,9 +420,23 @@
     },
     {
       "type": "figure",
-      "asset": "land-remembers-08",
-      "caption": "Between ceremonies, kins reconnect. The tahilga is as much reunion as ritual. Delgerkhaan Soum, Khentii Province. May 2026.",
-      "alt": "Between ceremonies, kins reconnect. The tahilga is as much reunion as ritual. Delgerkhaan Soum, Khentii Province. May 2026."
+      "markerNumbers": [
+        8,
+        11
+      ],
+      "images": [
+        {
+          "number": 8,
+          "asset": "land-remembers-08",
+          "alt": "A group of people sits together on the grass, with a motorcycle nearby."
+        },
+        {
+          "number": 11,
+          "asset": "land-remembers-11",
+          "alt": "Three people in gray, blue, and red traditional robes stand together near a white ger."
+        }
+      ],
+      "caption": "Between ceremonies, kins reconnect. The tahilga is as much reunion as ritual. Delgerkhaan Soum, Khentii Province. May 2026."
     },
     {
       "type": "paragraph",
@@ -340,9 +455,17 @@
     },
     {
       "type": "figure",
-      "asset": "land-remembers-09",
-      "caption": "Father and son at the garaa, the finish line, waiting to see who will airagdah, placing in the top five. Delgerkhaan Soum, Khentii Province. May 2026.",
-      "alt": "Father and son at the garaa, the finish line, waiting to see who will airagdah, placing in the top five. Delgerkhaan Soum, Khentii Province. May 2026."
+      "markerNumbers": [
+        9
+      ],
+      "images": [
+        {
+          "number": 9,
+          "asset": "land-remembers-09",
+          "alt": "A seated man and child watch horse riders on an open plain."
+        }
+      ],
+      "caption": "Father and son at the garaa, the finish line, waiting to see who will airagdah, placing in the top five. Delgerkhaan Soum, Khentii Province. May 2026."
     },
     {
       "type": "paragraph",
@@ -390,9 +513,17 @@
     },
     {
       "type": "figure",
-      "asset": "land-remembers-10",
-      "caption": "Tsatsal: A woman performing the ritual offering of milk to the land and sky. Delgerkhaan Soum, Khentii Province, May 2026.",
-      "alt": "Tsatsal: A woman performing the ritual offering of milk to the land and sky. Delgerkhaan Soum, Khentii Province, May 2026."
+      "markerNumbers": [
+        10
+      ],
+      "images": [
+        {
+          "number": 10,
+          "asset": "land-remembers-10",
+          "alt": "A woman makes a milk offering in a broad valley beneath rocky hills."
+        }
+      ],
+      "caption": "Tsatsal: A woman performing the ritual offering of milk to the land and sky. Delgerkhaan Soum, Khentii Province, May 2026."
     },
     {
       "type": "references",
@@ -494,7 +625,7 @@
       "1600": {
         "src": "images/writings/land-remembers-02-1600.webp",
         "width": 1600,
-        "height": 1066
+        "height": 1067
       }
     },
     "land-remembers-03": {
@@ -518,7 +649,7 @@
       "1600": {
         "src": "images/writings/land-remembers-04-1600.webp",
         "width": 1600,
-        "height": 1066
+        "height": 1067
       }
     },
     "land-remembers-05": {
@@ -530,7 +661,7 @@
       "1600": {
         "src": "images/writings/land-remembers-05-1600.webp",
         "width": 1600,
-        "height": 1066
+        "height": 1067
       }
     },
     "land-remembers-06": {
@@ -542,7 +673,7 @@
       "1600": {
         "src": "images/writings/land-remembers-06-1600.webp",
         "width": 1600,
-        "height": 1066
+        "height": 1067
       }
     },
     "land-remembers-07": {
@@ -554,7 +685,7 @@
       "1600": {
         "src": "images/writings/land-remembers-07-1600.webp",
         "width": 1600,
-        "height": 1066
+        "height": 1067
       }
     },
     "land-remembers-08": {
@@ -573,12 +704,12 @@
       "640": {
         "src": "images/writings/land-remembers-09-640.webp",
         "width": 640,
-        "height": 427
+        "height": 432
       },
       "1600": {
         "src": "images/writings/land-remembers-09-1600.webp",
-        "width": 1600,
-        "height": 1066
+        "width": 1558,
+        "height": 1052
       }
     },
     "land-remembers-10": {
@@ -590,7 +721,19 @@
       "1600": {
         "src": "images/writings/land-remembers-10-1600.webp",
         "width": 1600,
-        "height": 1066
+        "height": 1067
+      }
+    },
+    "land-remembers-11": {
+      "640": {
+        "src": "images/writings/land-remembers-11-640.webp",
+        "width": 640,
+        "height": 427
+      },
+      "1600": {
+        "src": "images/writings/land-remembers-11-1600.webp",
+        "width": 1600,
+        "height": 1067
       }
     }
   }

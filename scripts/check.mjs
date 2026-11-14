@@ -65,6 +65,20 @@ for (const project of content.projects) {
   assert(home.includes(`href="./projects/${project.id}/"`), `Home must link to the ${project.title} grid`);
 }
 assert.equal((home.match(/class="photograph project-preview /g) || []).length, content.projects.reduce((sum, project) => sum + Math.min(2, project.images.length), 0), 'Home must show project previews');
+for (const writing of content.writings.filter(item => item.article)) {
+  const article = JSON.parse(await readFile(path.join(root, 'content/writings', `${writing.article}.json`), 'utf8'));
+  const figures = article.blocks.filter(block => block.type === 'figure');
+  const articlePhotos = figures.flatMap(block => block.images || [{ asset: block.asset, alt: block.alt }]);
+  assert.equal(new Set(articlePhotos.map(photo => photo.asset)).size, articlePhotos.length, `Duplicate essay photograph: ${writing.title}`);
+  assert.deepEqual(articlePhotos.map(photo => photo.asset).sort(), Object.keys(article.images).sort(), `Incomplete essay images: ${writing.title}`);
+  if (article.source?.photos) assert.deepEqual(articlePhotos.map(photo => photo.asset).sort(), article.source.photos.map(photo => photo.asset).sort(), `Every supplied Writing Photo must be included: ${writing.title}`);
+  const html = documents.get(`writings/${writing.article}/index.html`);
+  for (const figure of figures.filter(block => block.markerNumbers)) {
+    assert.deepEqual(figure.images.map(photo => photo.number), figure.markerNumbers, 'Essay photograph numbers must match their placement marker');
+    assert(html.includes(`data-marker-numbers="${figure.markerNumbers.join(',')}"`), 'An essay placement marker was not rendered');
+  }
+  assert(!/\bPHOTO\s+\d+/.test(html), 'Photo placement instructions must not appear in the published essay');
+}
 assert(!documents.get('contact/index.html').includes('site-footer'), 'Contact should remain blank below navigation');
 assert(!/<(?:p|form|button|img)\b/.test(documents.get('contact/index.html').split('<main')[1].split('</main>')[0]), 'Contact body should remain blank');
 for (const filename of ['src/main.js', 'src/gallery.js', 'src/theme.js', 'src/theme-init.js', 'scripts/build.mjs', 'scripts/render-writing.mjs', 'scripts/render-project.mjs', 'scripts/serve.mjs']) {

@@ -12,7 +12,10 @@
 .essay__body a { color: var(--ink); text-decoration: underline; text-decoration-color: var(--muted); text-underline-offset: 3px; overflow-wrap: anywhere; }
 .essay__body a:hover { text-decoration-color: currentColor; }
 .essay__figure { width: 100%; margin: 48px auto 62px; }
-.essay__figure img { display: block; width: 100%; height: auto; }
+.essay__image-row { display: grid; grid-template-columns: minmax(0, 1fr); align-items: start; gap: 18px; }
+.essay__figure--paired .essay__image-row { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.essay__photo { display: block; min-width: 0; width: 100%; height: auto; align-self: start; }
+.essay__photo img { display: block; width: 100%; height: auto; object-fit: contain; }
 .essay__figure figcaption { display: block; max-width: 680px; margin: 15px auto 0; color: var(--muted); font: 12px/1.65 var(--sans); overflow-wrap: anywhere; }
 .essay__references { max-width: 680px; margin: 64px auto 0; padding-top: 30px; border-top: 1px solid var(--line); overflow-wrap: anywhere; }
 .essay__references h2 { margin: 0 0 23px; font: 25px/1.3 var(--serif); letter-spacing: -.02em; }
@@ -31,6 +34,7 @@
   .essay__meta { gap: 8px 18px; margin-top: 26px; }
   .essay__body { font-size: 19px; line-height: 1.7; }
   .essay__figure { margin: 34px auto 44px; }
+  .essay__image-row { gap: 10px; }
   .essay__figure figcaption { margin-top: 12px; font-size: 11px; }
   .essay__references { margin-top: 44px; padding-top: 25px; }
   .essay__references ol { font-size: 15px; }
