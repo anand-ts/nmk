@@ -3,6 +3,7 @@ import { initTheme } from './theme.js';
 
 initTheme();
 if (document.querySelector('[data-lightbox]')) initGallery();
+if (document.querySelector('video[data-film]')) import('./film.js').then(({ initFilms }) => initFilms()).catch(() => {});
 // Decorative motion should never block the theme toggle or photograph viewer.
 import('./motion.js').then(({ initMotion }) => initMotion()).catch(() => {});
 

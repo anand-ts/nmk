@@ -1,7 +1,7 @@
 const SELECTORS = [
   '.site-header', '.page-intro', '.writings-intro > *', '.writing',
   '.project__aside > *', '.gallery__item', '.project__view-link',
-  '.film-section > *', '.essay__header', '.essay__body > p',
+  '.film-section > *', '.writing-feature > *', '.essay__header', '.essay__body > p',
   '.essay__figure', '.essay__references', '.essay__footer',
   '.project-gallery__header', '.project-grid__item', '.project-gallery__footer',
   '.next-page', '.site-footer',

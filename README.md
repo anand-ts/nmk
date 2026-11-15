@@ -37,10 +37,12 @@ For Vercel, import the repository with its root directory unchanged. `vercel.jso
 - `content/writings/`: full essays, formatting, captions, references, and their image variants.
 - `src/styles.css`: typography, layout, mobile behavior, and viewer styles.
 - `src/article.css`: essay reading layout.
+- `scripts/writing-preview.mjs` and `src/writing-preview.css`: source-backed writing excerpts and the featured Home preview.
 - `src/project.css` and `scripts/render-project.mjs`: project grid pages and their responsive layout.
 - `src/theme.css`, `src/theme-init.js`, and `src/theme.js`: light/dark palette, first-paint preference, and appearance toggle.
 - `src/motion.js` and `src/motion.css`: subtle page entrances, scroll reveals, gallery stagger, and photograph-viewer fades.
 - `src/gallery.js`: photograph viewer.
+- `src/film.js`: viewport playback that respects native playback choices.
 - `scripts/build.mjs`: static page templates.
 
 The galleries include all 56 supplied photographs: 35 from Darkhad Migration, 11 from Homeland, and 10 from Earthlings. The first two photographs introduce each series on Home. Its dedicated grid at `projects/<project-id>/` displays the entire series, with three columns on desktop and two on smaller screens. Thumbnails preserve the complete photograph, and the viewer provides a larger image. Earthlings follows the supplied numbered sequence after its cover photograph. The other galleries retain their introductory images and append the remaining files in filename order.
@@ -72,13 +74,15 @@ Place files in `public/films/` and add entries to the top-level `films` array, o
 
 The English-version film is included on Home with a poster and native controls. It is encoded at 1280 × 720, with WebM/VP9/Opus first (34.9 MB) and MP4/H.264/AAC as a fallback (47.9 MB). Both preserve the complete 5:10 running time and the source's burned-in English subtitles. The 407.5 MB original is kept outside the repository.
 
-Players do not autoplay and use `preload="none"`. The local preview server supports byte-range requests for playback and seeking. Additional closed captions can be supplied as WebVTT files.
+The Home film starts muted when at least half of the player enters view, and pauses when it leaves view or the page is hidden. Playback resumes at the existing position when eligible; an explicit pause, unmute, or completed film is respected. Native controls stay available, including when a browser blocks autoplay or observation is unavailable. Files use `preload="none"` until needed. The local preview server supports byte-range requests for playback and seeking. Additional closed captions can be supplied as WebVTT files.
 
 ## Writings
 
 *The Land Remembers* has a native reading page at `writings/the-land-remembers/`, imported from the latest supplied Google Doc with photographs from `Writing Photos / The Land Remembers`. Its eleven numbered photographs follow the manuscript's placement markers; the 4 + 5, 6 + 7, and 8 + 11 pairs remain side by side. Each photograph opens in the shared viewer. Captions, italics, links, references, and paragraph order are preserved, while placement instructions are omitted from the published text.
 
 A link to the New Nomad Institute publication is retained at the bottom. The article, source-file mapping, and image metadata are in `content/writings/the-land-remembers.json`.
+
+Home features the first available essay with its actual photograph and opening text. The Writings list also shows a short excerpt. By default, previews use the first one or two complete sentences from the supplied article; an optional `excerpt` string in `content/portfolio.json` overrides that copy. Empty upcoming entries do not get invented previews.
 
 *Moving with the Wild* is shown as a title with “Text to come” until its text is supplied. No biography or project descriptions have been invented; these fields are ready to fill in.
 

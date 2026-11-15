@@ -3,6 +3,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { renderWritingArticle } from './render-writing.mjs';
 import { renderProjectGallery } from './render-project.mjs';
+import { writingExcerpt, renderFeaturedWriting } from './writing-preview.mjs';
 
 const root = fileURLToPath(new URL('../', import.meta.url));
 const content = JSON.parse(await readFile(path.join(root, 'content/portfolio.json'), 'utf8'));
@@ -49,6 +50,7 @@ function frame(page, body, options = {}) {
   <link rel="stylesheet" href="${prefix}assets/styles.css">
   ${options.article ? `<link rel="stylesheet" href="${prefix}assets/article.css">` : ''}
   ${options.project ? `<link rel="stylesheet" href="${prefix}assets/project.css">` : ''}
+  ${options.writingPreview ? `<link rel="stylesheet" href="${prefix}assets/writing-preview.css">` : ''}
   <link rel="stylesheet" href="${prefix}assets/theme.css">
   <link rel="stylesheet" href="${prefix}assets/motion.css">
   <script type="module" src="${prefix}assets/main.js"></script>
@@ -99,8 +101,8 @@ const home = `<main id="main" tabindex="-1">
   <div class="page-intro"><h1>${escape(content.intro)}</h1><div class="page-intro__meta"><span>Selected work</span><span>01 — ${String(content.projects.length).padStart(2, '0')} <span class="intro-arrow" aria-hidden="true">↓</span></span></div></div>
   ${content.bio ? `<p class="bio">${escape(content.bio)}</p>` : ''}
   ${content.projects.map(projectSection).join('\n')}
-  ${(content.films || []).map(film => `<section class="film-section" id="${escape(film.id)}" aria-labelledby="${escape(film.id)}-title"><aside class="film-section__aside"><span class="eyebrow">Moving image</span><h2 class="film-section__title" id="${escape(film.id)}-title">${escape(film.title)}</h2><p class="film-section__meta">${escape(film.version || '')}${film.duration ? ` · ${escape(film.duration)}` : ''}</p></aside><figure class="film__frame"><video data-film controls playsinline preload="none" poster="./${escape(film.poster)}" width="${film.width}" height="${film.height}" aria-label="${escape(film.title)}${film.version ? ` — ${escape(film.version)}` : ''}">${(film.sources || [{ src: film.src, type: film.type || 'video/mp4' }]).map(source => `<source src="./${escape(source.src)}" type="${escape(source.type)}">`).join('')}${film.captions ? `<track kind="captions" src="./${escape(film.captions)}" srclang="en" label="English" default>` : ''}<p>Your browser cannot play this film. <a href="./${escape(film.src)}">Download the film</a>.</p></video><figcaption><span>${escape(film.version || film.title)}</span><span>${escape(film.duration || '')}</span></figcaption></figure></section>`).join('\n')}
-  <a class="next-page" href="./writings/"><span>Continue exploring</span><span class="next-page__title">Writings ${arrow}</span></a>
+  ${(content.films || []).map(film => `<section class="film-section" id="${escape(film.id)}" aria-labelledby="${escape(film.id)}-title"><aside class="film-section__aside"><span class="eyebrow">Moving image</span><h2 class="film-section__title" id="${escape(film.id)}-title">${escape(film.title)}</h2><p class="film-section__meta">${escape(film.version || '')}${film.duration ? ` · ${escape(film.duration)}` : ''}</p></aside><figure class="film__frame"><video data-film controls muted playsinline preload="none" poster="./${escape(film.poster)}" width="${film.width}" height="${film.height}" aria-label="${escape(film.title)}${film.version ? ` — ${escape(film.version)}` : ''}">${(film.sources || [{ src: film.src, type: film.type || 'video/mp4' }]).map(source => `<source src="./${escape(source.src)}" type="${escape(source.type)}">`).join('')}${film.captions ? `<track kind="captions" src="./${escape(film.captions)}" srclang="en" label="English" default>` : ''}<p>Your browser cannot play this film. <a href="./${escape(film.src)}">Download the film</a>.</p></video><figcaption><span>${escape(film.version || film.title)}</span><span>${escape(film.duration || '')}</span></figcaption></figure></section>`).join('\n')}
+  ${content.writings.map(writing => renderFeaturedWriting(writing, articles.get(writing.article), './')).find(Boolean) || `<a class="next-page" href="./writings/"><span>Continue exploring</span><span class="next-page__title">Writings ${arrow}</span></a>`}
 </main>`;
 
 const writings = `<main id="main" tabindex="-1" class="writings-layout">
@@ -108,7 +110,8 @@ const writings = `<main id="main" tabindex="-1" class="writings-layout">
   <div class="writing-list">${content.writings.map((writing, index) => {
     const image = { asset: writing.asset, alt: writing.title === 'The Land Remembers' ? 'A small temple beneath an open sky in the Homeland photographic series.' : 'Loaded yaks in the snowy woodland of the Darkhad Migration series.' };
     const href = writing.article ? `./${writing.article}/` : writing.url;
-    const inner = `<span class="writing__number">${String(index + 1).padStart(2, '0')}</span><div class="writing__body"><div class="writing__meta">${href ? `<span>${escape(writing.publication)}</span><time datetime="${escape(writing.date)}">${escape(writing.displayDate)}</time>` : '<span>Text to come</span>'}</div><h2>${escape(writing.title)}</h2>${writing.subtitle ? `<p>${escape(writing.subtitle)}</p>` : ''}${href ? `<span class="writing__action">Read the essay ${arrow}</span>` : ''}</div><span class="writing__thumbnail">${photograph(image, '../', { thumbnail: true })}</span>`;
+    const excerpt = writingExcerpt(writing, articles.get(writing.article));
+    const inner = `<span class="writing__number">${String(index + 1).padStart(2, '0')}</span><div class="writing__body"><div class="writing__meta">${href ? `<span>${escape(writing.publication)}</span><time datetime="${escape(writing.date)}">${escape(writing.displayDate)}</time>` : '<span>Text to come</span>'}</div><h2>${escape(writing.title)}</h2>${writing.subtitle ? `<p>${escape(writing.subtitle)}</p>` : ''}${excerpt ? `<p class="writing__excerpt">${escape(excerpt)}</p>` : ''}${href ? `<span class="writing__action">Read the essay ${arrow}</span>` : ''}</div><span class="writing__thumbnail">${photograph(image, '../', { thumbnail: true })}</span>`;
     return href ? `<article class="writing"><a class="writing__link" href="${escape(href)}">${inner}</a></article>` : `<article class="writing writing--upcoming"><div class="writing__link">${inner}</div></article>`;
   }).join('\n')}</div>
 </main>`;
@@ -118,9 +121,9 @@ await mkdir(path.join(dist, 'assets'), { recursive: true });
 await mkdir(path.join(dist, 'writings'), { recursive: true });
 await mkdir(path.join(dist, 'contact'), { recursive: true });
 await cp(path.join(root, 'public'), dist, { recursive: true });
-await Promise.all(['main.js', 'gallery.js', 'styles.css', 'article.css', 'project.css', 'theme.js', 'theme-init.js', 'theme.css', 'motion.js', 'motion.css'].map((filename) => cp(path.join(root, 'src', filename), path.join(dist, 'assets', filename))));
-await writeFile(path.join(dist, 'index.html'), frame('home', home));
-await writeFile(path.join(dist, 'writings/index.html'), frame('writings', writings));
+await Promise.all(['main.js', 'gallery.js', 'styles.css', 'article.css', 'project.css', 'writing-preview.css', 'theme.js', 'theme-init.js', 'theme.css', 'motion.js', 'motion.css', 'film.js'].map((filename) => cp(path.join(root, 'src', filename), path.join(dist, 'assets', filename))));
+await writeFile(path.join(dist, 'index.html'), frame('home', home, { writingPreview: true }));
+await writeFile(path.join(dist, 'writings/index.html'), frame('writings', writings, { writingPreview: true }));
 await writeFile(path.join(dist, 'contact/index.html'), frame('contact', '<main id="main" class="contact-blank" tabindex="-1" aria-label="Contact"><h1 class="visually-hidden">Contact</h1></main>'));
 for (const [slug, article] of articles) {
   await mkdir(path.join(dist, 'writings', slug), { recursive: true });
