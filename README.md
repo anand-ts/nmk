@@ -27,6 +27,16 @@ npm run check
 
 The build produces `dist/`, which can be served by any static host. Routes use relative URLs and work beneath a subdirectory as well as a domain root. The Sites identity is kept in `.openai/hosting.json`; creation alone does not mean it is deployed.
 
+## GitHub Pages
+
+The `.github/workflows/pages.yml` workflow builds and checks the website on every push to `main`, then publishes only `dist/` to GitHub Pages. It can also be started manually from the repository's Actions tab. No dependency installation or separate deployment branch is needed.
+
+In the repository's **Settings → Pages → Build and deployment**, select **GitHub Actions** as the source. GitHub Pages must be available for the repository's visibility and account plan: public repositories are supported on GitHub Free; private repositories require an eligible paid plan. Enabling Pages publishes the website for visitors while the source repository can stay private on a supported plan.
+
+The default project address is `https://anand-ts.github.io/nmk/`. The relative page, image, film, and script URLs support this `/nmk/` prefix without a separate build configuration.
+
+## Vercel
+
 For Vercel, import the repository with its root directory unchanged. `vercel.json` supplies the static build command and `dist` output directory. Directory pages are redirected to URLs ending in `/`, matching the local preview and keeping relative essay links correct when visitors open slashless URLs directly.
 
 ## Edit content
