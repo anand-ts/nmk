@@ -21,7 +21,7 @@ export function initGallery() {
       <button class="lightbox__previous" type="button" aria-label="Previous photograph">
         <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.4"><path d="m14 5-7 7 7 7M7 12h14" /></svg>
       </button>
-      <figure class="lightbox__figure">
+      <figure class="lightbox__figure" aria-label="Photograph and caption">
         <img class="lightbox__image" alt="" decoding="async" />
         <div class="lightbox__status" role="status" aria-live="polite"></div>
         <button class="lightbox__retry" type="button" hidden>Try loading again</button>
@@ -51,6 +51,24 @@ export function initGallery() {
   let loadingTimer;
   let restoredScroll = false;
 
+  function updateScrollFocus() {
+    if (!dialog.open) return;
+    if (figure.scrollHeight > figure.clientHeight) {
+      figure.tabIndex = 0;
+      return;
+    }
+    if (document.activeElement === figure) {
+      // Wait for the new photograph before moving focus out of the figure.
+      if (dialog.dataset.state === 'loading') return;
+      (next.hidden ? close : next).focus({ preventScroll: true });
+    }
+    figure.removeAttribute('tabindex');
+  }
+
+  const figureObserver = typeof ResizeObserver === 'function' ? new ResizeObserver(updateScrollFocus) : null;
+  if (figureObserver) [figure, photograph, caption].forEach(element => figureObserver.observe(element));
+  else window.addEventListener('resize', updateScrollFocus);
+
   function hideRetry() {
     if (document.activeElement === retry) close.focus({ preventScroll: true });
     retry.hidden = true;
@@ -78,6 +96,7 @@ export function initGallery() {
     counter.textContent = `${position + 1} / ${photographs.length}`;
     previous.hidden = next.hidden = photographs.length < 2;
     dialog.setAttribute('aria-label', series ? `${series} — photograph viewer` : 'Photograph viewer');
+    updateScrollFocus();
 
     function failed() {
       if (sequence !== loadSequence) return;
@@ -88,6 +107,7 @@ export function initGallery() {
       status.hidden = false;
       status.textContent = 'This photograph could not be loaded.';
       retry.hidden = false;
+      updateScrollFocus();
     }
 
     if (!source) {
@@ -107,6 +127,7 @@ export function initGallery() {
       figure.scrollTop = 0;
       dialog.dataset.state = 'ready';
       dialog.setAttribute('aria-busy', 'false');
+      updateScrollFocus();
     };
     loader.onerror = failed;
     loader.src = source;
@@ -114,6 +135,7 @@ export function initGallery() {
       if (sequence !== loadSequence || dialog.dataset.state !== 'loading') return;
       status.textContent = 'Still loading the photograph…';
       retry.hidden = false;
+      updateScrollFocus();
     }, 12000);
   }
 
@@ -141,6 +163,7 @@ export function initGallery() {
     document.documentElement.classList.add('lightbox-open');
     render();
     dialog.showModal();
+    updateScrollFocus();
     close.focus({ preventScroll: true });
   }
 
@@ -150,6 +173,7 @@ export function initGallery() {
     if (!restoredScroll) document.documentElement.classList.remove('lightbox-open');
     if (opener?.isConnected) opener.focus({ preventScroll: true });
     photograph.removeAttribute('src');
+    figure.removeAttribute('tabindex');
     photographs = [];
   }
 
@@ -178,6 +202,8 @@ export function initGallery() {
 
   const cleanup = () => {
     document.removeEventListener('click', open);
+    figureObserver?.disconnect();
+    window.removeEventListener('resize', updateScrollFocus);
     if (dialog.open) {
       dialog.close();
       finish();

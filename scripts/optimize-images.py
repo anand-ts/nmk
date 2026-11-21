@@ -9,6 +9,7 @@ from concurrent.futures import ThreadPoolExecutor
 from io import BytesIO
 import argparse
 import json
+import sys
 from PIL import Image, ImageCms, ImageOps
 
 root = Path(__file__).resolve().parent.parent
@@ -49,15 +50,19 @@ if pending and not args.available_only:
 
 def optimize(job):
     asset, widths = job
-    with Image.open(source / (asset + '.jpg')) as original:
+    original_file = source / f'{asset}.jpg'
+    with Image.open(original_file) as original:
         image = ImageOps.exif_transpose(original)
         profile = image.info.get('icc_profile')
         if profile:
             # Untagged WebP is read as sRGB, so convert before dropping metadata.
-            image = ImageCms.profileToProfile(
-                image, BytesIO(profile), ImageCms.createProfile('sRGB'), outputMode='RGB'
-            )
-        else:
+            try:
+                image = ImageCms.profileToProfile(
+                    image, BytesIO(profile), ImageCms.createProfile('sRGB'), outputMode='RGB'
+                )
+            except ImageCms.PyCMSError as error:
+                print(f'Warning: {original_file.name}: ignoring unusable ICC profile ({error}).', file=sys.stderr)
+        if image.mode != 'RGB':
             image = image.convert('RGB')
     original_width, original_height = image.size
     variants = {}

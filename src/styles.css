@@ -110,6 +110,7 @@ html.lightbox-open { overflow: hidden; }
 .lightbox__close { position: absolute; z-index: 2; top: 20px; right: 26px; width: 44px; height: 44px; font-size: 28px; font-weight: 300; }
 .lightbox__stage { display: flex; align-items: center; justify-content: center; gap: 24px; width: 100%; height: 100%; }
 .lightbox__figure { position: relative; min-width: 0; max-width: calc(100vw - 210px); max-height: 100%; width: 100%; display: flex; flex-direction: column; align-items: center; overflow: auto; overflow-anchor: none; }
+.lightbox__figure:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 .lightbox__image { width: auto; height: auto; min-height: min(64px, 20dvh); max-width: 100%; max-height: calc(100dvh - 145px); object-fit: contain; }
 .lightbox__caption { display: block; flex-shrink: 0; max-width: 100%; overflow-wrap: anywhere; text-align: center; font-size: 11px; margin: 16px 0 0; }
 .lightbox__counter { position: absolute; bottom: 22px; left: 32px; font-size: 11px; color: var(--muted); }
