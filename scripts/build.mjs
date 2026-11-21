@@ -23,7 +23,7 @@ function photograph(image, prefix, { eager = false, className = '', lightbox = f
   const markup = `<img src="${prefix}${fallback.src}" srcset="${prefix}${small.src} ${small.width}w, ${prefix}${large.src} ${large.width}w" sizes="${responsiveSizes}" width="${fallback.width}" height="${fallback.height}" alt="${escape(image.alt)}" loading="${eager ? 'eager' : 'lazy'}" decoding="async"${eager ? ' fetchpriority="high"' : ''}>`;
   if (href) return `<a class="photograph project-preview ${className}" href="${escape(href)}" aria-label="${escape(linkLabel || image.alt)}">${markup}<span class="photograph__enlarge" aria-hidden="true">${arrow}</span></a>`;
   return lightbox
-    ? `<button class="photograph ${className}" type="button" data-lightbox data-src="${prefix}${large.src}" data-alt="${escape(image.alt)}" data-caption="${escape(image.caption)}" data-series="${escape(series)}" aria-label="Enlarge photograph: ${escape(image.alt)} (${escape(image.caption)})">${markup}<span class="photograph__enlarge" aria-hidden="true">${arrow}</span></button>`
+    ? `<button class="photograph ${className}" type="button" data-lightbox data-src="${prefix}${large.src}" data-alt="${escape(image.alt)}" data-caption="${escape(image.caption)}" data-series="${escape(series)}" aria-label="Enlarge photograph: ${escape(image.alt)}">${markup}<span class="photograph__enlarge" aria-hidden="true">${arrow}</span></button>`
     : `<span class="photograph ${className}">${markup}</span>`;
 }
 

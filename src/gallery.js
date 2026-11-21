@@ -35,6 +35,7 @@ export function initGallery() {
   `;
   document.body.append(dialog);
 
+  const figure = dialog.querySelector('.lightbox__figure');
   const photograph = dialog.querySelector('.lightbox__image');
   const caption = dialog.querySelector('.lightbox__caption');
   const counter = dialog.querySelector('.lightbox__counter');
@@ -103,6 +104,7 @@ export function initGallery() {
       photograph.src = source;
       photograph.hidden = false;
       status.hidden = true;
+      figure.scrollTop = 0;
       dialog.dataset.state = 'ready';
       dialog.setAttribute('aria-busy', 'false');
     };

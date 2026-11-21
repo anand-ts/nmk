@@ -56,7 +56,7 @@ python3 scripts/optimize-images.py /path/to/originals
 npm run build
 ```
 
-Image processing is optional for normal builds; all current optimized files are checked in. The helper applies EXIF orientation, removes embedded metadata from the derivatives, and reuses unchanged variants. Use `--available-only` during a partial import or `--force` to regenerate existing variants. Export camera RAW files to JPEG before passing them to the helper.
+Image processing is optional for normal builds. All current optimized files are checked in. The helper applies EXIF orientation and converts embedded color profiles to sRGB before saving derivatives without source metadata. It reuses unchanged variants. Use `--available-only` during a partial import or `--force` to regenerate existing variants. Export camera RAW files to JPEG before passing them to the helper.
 
 ## Add films
 
@@ -74,7 +74,7 @@ Place files in `public/films/` and add entries to the top-level `films` array, o
 
 The English-version film is included on Home with a poster and native controls. It is encoded at 1280 × 720, with WebM/VP9/Opus first (34.9 MB) and MP4/H.264/AAC as a fallback (47.9 MB). Both preserve the complete 5:10 running time and the source's burned-in English subtitles. The 407.5 MB original is kept outside the repository.
 
-The Home film starts muted when at least half of the player enters view, and pauses when it leaves view or the page is hidden. Playback resumes at the existing position when eligible; an explicit pause, unmute, or completed film is respected. Native controls stay available, including when a browser blocks autoplay or observation is unavailable. Files use `preload="none"` until needed. The local preview server supports byte-range requests for playback and seeking. Additional closed captions can be supplied as WebVTT files.
+The Home film starts muted when at least half of the inline player enters view. Inline playback pauses when the player leaves view or the page is hidden. In picture-in-picture, playback follows the floating player's controls. Playback resumes at the existing position when eligible and respects an explicit pause, unmute, or completed film. Native controls stay available, including when a browser blocks autoplay or observation is unavailable. Files use `preload="none"` until needed. The local preview server supports byte-range requests for playback and seeking. Additional closed captions can be supplied as WebVTT files.
 
 ## Writings
 

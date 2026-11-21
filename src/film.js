@@ -4,6 +4,10 @@ const choices = new WeakMap();
 const controlledPauseEvents = new WeakSet();
 let disposeFilms;
 
+function inPictureInPicture(video) {
+  return document.pictureInPictureElement === video || video.webkitPresentationMode === 'picture-in-picture';
+}
+
 /** Autoplay muted films in view while leaving native playback choices intact. */
 export function initFilms() {
   disposeFilms?.();
@@ -35,6 +39,8 @@ export function initFilms() {
   }
 
   function pause(state) {
+    // A floating player is still visible when its page or inline video is hidden.
+    if (pageActive && !disposed && inPictureInPicture(state.video)) return;
     if (state.request) state.request.cancelled = true;
     if (state.video.paused) return;
     state.choice.controlledPauses += 1;
@@ -52,7 +58,7 @@ export function initFilms() {
   }
 
   function synchronize(state) {
-    if (!observing) return;
+    if (!observing || inPictureInPicture(state.video)) return;
     if (!mayPlay(state)) return pause(state);
     if (!state.video.paused || state.request) return;
     const request = { cancelled: false };
@@ -80,6 +86,7 @@ export function initFilms() {
       // The HTML supplies defaultMuted; never overwrite a user's live audio choice.
     }
     const state = { video, choice, ratio: 0, inView: false, request: null };
+    let wasInPictureInPicture = inPictureInPicture(video);
     choice.owner = state;
     if (!video.paused && !video.ended) {
       state.ratio = viewportRatio(video);
@@ -127,14 +134,29 @@ export function initFilms() {
       if (state.request) state.request.cancelled = true;
     }
 
+    function onPresentationChange() {
+      const inPicture = inPictureInPicture(video);
+      const exited = wasInPictureInPicture && !inPicture;
+      wasInPictureInPicture = inPicture;
+      if (!exited) return;
+      if (!pageActive || document.visibilityState !== 'visible') pause(state);
+      else if (observing) {
+        updateVisibility(state, viewportRatio(video));
+        synchronize(state);
+      }
+    }
+
+    const presentationEvents = ['enterpictureinpicture', 'leavepictureinpicture', 'webkitpresentationmodechanged'];
     state.removeListeners = (keepPendingPause = false) => {
       video.removeEventListener('play', onPlay);
       if (!keepPendingPause) video.removeEventListener('pause', onPause);
       video.removeEventListener('ended', onEnded);
+      for (const event of presentationEvents) video.removeEventListener(event, onPresentationChange);
     };
     video.addEventListener('play', onPlay);
     video.addEventListener('pause', onPause);
     video.addEventListener('ended', onEnded);
+    for (const event of presentationEvents) video.addEventListener(event, onPresentationChange);
     states.set(video, state);
   }
 

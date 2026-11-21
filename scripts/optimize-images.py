@@ -6,9 +6,10 @@ Run the normal build afterward. Originals are never copied into the website.
 """
 from pathlib import Path
 from concurrent.futures import ThreadPoolExecutor
+from io import BytesIO
 import argparse
 import json
-from PIL import Image, ImageOps
+from PIL import Image, ImageCms, ImageOps
 
 root = Path(__file__).resolve().parent.parent
 parser = argparse.ArgumentParser(description=__doc__)
@@ -49,7 +50,15 @@ if pending and not args.available_only:
 def optimize(job):
     asset, widths = job
     with Image.open(source / (asset + '.jpg')) as original:
-        image = ImageOps.exif_transpose(original).convert('RGB')
+        image = ImageOps.exif_transpose(original)
+        profile = image.info.get('icc_profile')
+        if profile:
+            # Untagged WebP is read as sRGB, so convert before dropping metadata.
+            image = ImageCms.profileToProfile(
+                image, BytesIO(profile), ImageCms.createProfile('sRGB'), outputMode='RGB'
+            )
+        else:
+            image = image.convert('RGB')
     original_width, original_height = image.size
     variants = {}
     for width in widths:

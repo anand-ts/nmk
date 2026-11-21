@@ -260,53 +260,53 @@
       "images": [
         {
           "asset": "earthlings-original",
-          "alt": "Black and white photograph of tree branches seen through a window, with the title Earthlings.",
-          "caption": "Earthlings, 01"
+          "alt": "Black and white photograph of tree branches seen through a window.",
+          "caption": "Earthlings"
         },
         {
           "asset": "earthlings-pablo",
-          "alt": "Black and white portrait of Pablo holding a glass at an outdoor table, with a caption about a metropolis.",
-          "caption": "Earthlings — Pablo"
+          "alt": "Black and white portrait of Pablo holding a credit card at an outdoor table.",
+          "caption": "Pablo — We are consuming a credit card’s worth of microplastic a week."
         },
         {
           "asset": "earthlings-olha",
-          "alt": "Black and white portrait of Olha standing on a residential street, captioned Buried by overconsumption.",
-          "caption": "Earthlings — Olha"
+          "alt": "Black and white portrait of Olha wearing layers of knitwear on a sidewalk in front of houses.",
+          "caption": "Olha — Buried by overconsumption."
         },
         {
           "asset": "earthlings-ryan",
-          "alt": "Black and white portrait of Ryan holding a cup in front of a brick wall.",
-          "caption": "Earthlings — Ryan"
+          "alt": "Black and white portrait of Ryan holding a small glass, with headphones around his neck, in front of a brick wall.",
+          "caption": "Ryan — “We need love as we need water”"
         },
         {
           "asset": "earthlings-enhjin",
-          "alt": "Black and white portrait of Enhjin wearing a face mask and holding a cup, captioned Who gets to breathe?",
-          "caption": "Earthlings — Enhjin"
+          "alt": "Black and white portrait of Enhjin wearing a face mask and holding up a phone.",
+          "caption": "Enhjin — Who gets to breathe?"
         },
         {
           "asset": "earthlings-shaamyl",
-          "alt": "Black and white portrait of Shaamyl beside a street, with words about societal and technological responses to climate change.",
-          "caption": "Earthlings — Shaamyl"
+          "alt": "Black and white portrait of Shaamyl pointing to an electric vehicle charging sign.",
+          "caption": "Shaamyl — There are two parts to combating climate change: societal and technological action."
         },
         {
           "asset": "earthlings-disha",
-          "alt": "Black and white portrait of Disha beside a brick building, with words about sustainable eating and ethical living.",
-          "caption": "Earthlings — Disha"
+          "alt": "Black and white portrait of Disha standing outside a brick building.",
+          "caption": "Disha — Eating sustainably, producing responsibly, living ethically"
         },
         {
           "asset": "earthlings-nadya",
-          "alt": "Black and white portrait of Nadya among bare trees, with a question about deforestation and family trees.",
-          "caption": "Earthlings — Nadya"
+          "alt": "Black and white portrait of Nadya standing among leafless trees.",
+          "caption": "Nadya — Will deforestation cut down our family trees?"
         },
         {
           "asset": "earthlings-grace",
-          "alt": "Black and white portrait of Grace framed by trees, captioned Radically reassessing materialism.",
-          "caption": "Earthlings — Grace"
+          "alt": "Black and white portrait of Grace framed by foliage outside a brick building.",
+          "caption": "Grace — Radically reassessing materialism"
         },
         {
           "asset": "earthlings-apurva",
-          "alt": "Black and white portrait of Apurva standing near a petrol station, with a question about phasing out fossil fuels.",
-          "caption": "Earthlings — Apurva"
+          "alt": "Black and white portrait of Apurva standing outside a petrol station.",
+          "caption": "Apurva — What would a phase-out of fossil fuels look like?"
         }
       ],
       "videos": []
