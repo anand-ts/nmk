@@ -26,6 +26,7 @@ function renderFigure(block, article, prefix) {
   if (!images.length) throw new Error('An essay figure must contain at least one photograph.');
   const paired = images.length > 1;
   const markerNumbers = Array.isArray(block.markerNumbers) ? block.markerNumbers : images.map(image => image.number).filter(number => number !== undefined);
+  const caption = block.caption ? escape(block.caption) : '';
   const sizes = paired
     ? '(max-width: 760px) calc((100vw - 50px) / 2), (max-width: 1064px) calc((100vw - 82px) / 2), 491px'
     : '(max-width: 760px) calc(100vw - 40px), (max-width: 1100px) calc(100vw - 64px), 1000px';
@@ -42,7 +43,7 @@ function renderFigure(block, article, prefix) {
   }).join('\n');
   return `<figure class="essay__figure${paired ? ' essay__figure--paired' : ''}" data-marker-numbers="${escape(markerNumbers.join(','))}">
     <div class="essay__image-row">${photographs}</div>
-    ${block.caption ? `<figcaption>${escape(block.caption)}</figcaption>` : ''}
+    ${caption ? `<figcaption>${block.captionItalic ? `<em>${caption}</em>` : caption}</figcaption>` : ''}
   </figure>`;
 }
 
@@ -50,8 +51,14 @@ function renderFigure(block, article, prefix) {
 export function renderWritingArticle(article, prefix = '../../') {
   const publication = typeof article.publication === 'string' ? { name: article.publication } : (article.publication || {});
   const publicationUrl = safeHref(publication.url);
+  const byline = article.byline || article.author;
+  const metadata = `${byline ? `<span class="essay__author">${escape(byline)}</span>` : ''}${publication.name ? `<span>${escape(publication.name)}</span>` : ''}${publication.date ? `<time datetime="${escape(publication.date)}">${escape(publication.displayDate || publication.date)}</time>` : ''}`;
+  const poem = article.kind === 'poem';
   const blocks = (article.blocks || []).map((block, index) => {
-    if (block.type === 'paragraph') return `<p>${renderRuns(block.runs)}</p>`;
+    if (block.type === 'paragraph') {
+      const spacing = poem ? '\n'.repeat(block.blankLinesBefore ?? 0) : '';
+      return `<p>${spacing}${renderRuns(block.runs)}</p>`;
+    }
     if (block.type === 'figure') return renderFigure(block, article, prefix);
     if (block.type === 'references') {
       return `<section class="essay__references" aria-labelledby="essay-references-${index}">
@@ -62,16 +69,12 @@ export function renderWritingArticle(article, prefix = '../../') {
     throw new Error(`Unsupported essay block type: ${block.type}`);
   }).join('\n');
   return `<main id="main" tabindex="-1" class="article-layout">
-    <article class="essay" aria-labelledby="essay-title">
+    <article class="essay${poem ? ' essay--poem' : ''}" aria-labelledby="essay-title">
       <header class="essay__header">
         <a class="essay__back" href="../"><span aria-hidden="true">←</span> Writings</a>
         <h1 id="essay-title">${escape(article.title)}</h1>
         ${article.subtitle ? `<p class="essay__subtitle">${escape(article.subtitle)}</p>` : ''}
-        <div class="essay__meta">
-          ${article.author ? `<span class="essay__author">${escape(article.author)}</span>` : ''}
-          ${publication.name ? `<span>${escape(publication.name)}</span>` : ''}
-          ${publication.date ? `<time datetime="${escape(publication.date)}">${escape(publication.displayDate || publication.date)}</time>` : ''}
-        </div>
+        ${metadata ? `<div class="essay__meta">${metadata}</div>` : ''}
       </header>
       <div class="essay__body">${blocks}</div>
       <footer class="essay__footer">

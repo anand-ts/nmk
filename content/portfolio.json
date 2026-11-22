@@ -325,12 +325,13 @@
     },
     {
       "title": "Moving with the Wild",
-      "subtitle": "",
-      "publication": "",
-      "date": "",
-      "displayDate": "",
-      "url": "",
+      "article": "moving-with-the-wild",
+      "subtitle": "Field Notes from the Darkhad Valley",
       "asset": "darkhad-03"
+    },
+    {
+      "title": "museum of erasure",
+      "article": "museum-of-erasure"
     }
   ],
   "films": [

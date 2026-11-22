@@ -84,7 +84,7 @@ A link to the New Nomad Institute publication is retained at the bottom. The art
 
 Home features the first available essay with its actual photograph and opening text. The Writings list also shows a short excerpt. By default, previews use the first one or two complete sentences from the supplied article; an optional `excerpt` string in `content/portfolio.json` overrides that copy. Empty upcoming entries do not get invented previews.
 
-*Moving with the Wild* is shown as a title with “Text to come” until its text is supplied. No biography or project descriptions have been invented; these fields are ready to fill in.
+*Moving with the Wild* at `writings/moving-with-the-wild/` includes nine photographs at the manuscript’s markers, with photographs 4 and 5 side by side. *museum of erasure* at `writings/museum-of-erasure/` preserves the poem’s line breaks, stanza spacing, italics, and closing date.
 
 ## Appearance
 

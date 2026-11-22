@@ -1,0 +1,526 @@
+{
+  "slug": "moving-with-the-wild",
+  "title": "Moving with the Wild: Field Notes from the Darkhad Valley",
+  "subtitle": "Five days on a seasonal migration with a herding family in northern Mongolia",
+  "author": "Nyamsuren Erdenebayar",
+  "byline": "Written and photographed by Nyamsuren Erdenebayar",
+  "source": {
+    "documentId": "1VYtib_7AmfN6sVzUYoEYD1o2sWkpvQ4xpZspNxtPMcI",
+    "tabId": "t.l7g30rpdlg0",
+    "revisionId": "AHj4eMQ5Mb-5dlF5uSaJ8cu5jUr9_6s7yeKYwpBiQgRFO1MSWTY3NDYh3zEHB31UpI57LHPBQ08-O3usk4SYMSkLW1JjERgHNT8uzA08RW8",
+    "photoFolderId": "1tzLwgzNxfy4dJ1tqcWTdXZHOaZ7jej_1",
+    "photos": [
+      {
+        "number": 1,
+        "filename": "1.JPG",
+        "driveFileId": "176ZM4rcyLH-LCuf4dGr6wLoClMWCWS5q",
+        "asset": "moving-wild-01"
+      },
+      {
+        "number": 2,
+        "filename": "2.JPG",
+        "driveFileId": "1fEwVoVQDGzUeynZySsirCT5taLbaOorp",
+        "asset": "moving-wild-02"
+      },
+      {
+        "number": 3,
+        "filename": "3.JPG",
+        "driveFileId": "1kP_rxMMJyYb1eCA8NA7tazE2Aw_Erqa_",
+        "asset": "moving-wild-03"
+      },
+      {
+        "number": 4,
+        "filename": "4.JPG",
+        "driveFileId": "1unmvJQqiVRFv4rfSio6saz-BZvl90dZf",
+        "asset": "moving-wild-04"
+      },
+      {
+        "number": 5,
+        "filename": "5.JPG",
+        "driveFileId": "18VHqYH7QjsqoNRsyR8k7CuhDDBc_DllK",
+        "asset": "moving-wild-05"
+      },
+      {
+        "number": 6,
+        "filename": "6.JPG",
+        "driveFileId": "1B7uzWcvh3aKev85moevHfTNZia-GIchT",
+        "asset": "moving-wild-06"
+      },
+      {
+        "number": 7,
+        "filename": "7.JPG",
+        "driveFileId": "1yUSy-VXm-yOAsrqaTEWn9cQ0_ZlCt4yK",
+        "asset": "moving-wild-07"
+      },
+      {
+        "number": 8,
+        "filename": "8.JPG",
+        "driveFileId": "1gTHyTYf-ucXblAzbbqeERldi4d5SJ4f7",
+        "asset": "moving-wild-08"
+      },
+      {
+        "number": 9,
+        "filename": "9.JPG",
+        "driveFileId": "1bv3W-vOGcN5SRQlyzQjdV1M1fdTa0h-h",
+        "asset": "moving-wild-09"
+      }
+    ]
+  },
+  "blocks": [
+    {
+      "type": "figure",
+      "markerNumbers": [
+        1
+      ],
+      "images": [
+        {
+          "number": 1,
+          "asset": "moving-wild-01",
+          "alt": "Ganaa holds a yellow ger roof ring overhead against a clear blue sky."
+        }
+      ],
+      "caption": "Ganaa raises the roof ring of a ger, a traditional Mongolian yurt. Renchinlkhumbe Soum, Khuvsgul Province, October 2026.",
+      "captionItalic": true
+    },
+    {
+      "type": "paragraph",
+      "runs": [
+        {
+          "text": "Sugar has moved through the Darkhad Valley at the foot of the Khoridol Saridag range for as long as he can remember. When he was a boy, his family once woke him at dawn to take down their "
+        },
+        {
+          "text": "ger. ",
+          "italic": true
+        },
+        {
+          "text": "But only one side."
+        },
+        {
+          "text": " ",
+          "bold": true
+        },
+        {
+          "text": "They stripped the canvas, the felt, and the lattice walls from the side hidden from the neighboring camps. From across the valley, it must have looked like everyone was still asleep. Yet they had already started moving. "
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "runs": [
+        {
+          "text": "Pasture is a herder’s most valuable currency. Sometimes feeding your herd meant staying one step ahead of your neighbors. Stories of racing for pasture were common. These days, no one races. Instead, the families of the valley arrive at their "
+        },
+        {
+          "text": "övöljöö",
+          "italic": true
+        },
+        {
+          "text": ", or winter camp, around an agreed date so that no one’s herd grazes the pasture down first. This year, that date was November 10th."
+        }
+      ]
+    },
+    {
+      "type": "figure",
+      "markerNumbers": [
+        2
+      ],
+      "images": [
+        {
+          "number": 2,
+          "asset": "moving-wild-02",
+          "alt": "A loaded ox stands in the foreground, with a broad plain and snowcapped mountains beyond."
+        }
+      ],
+      "caption": "Oxen carry mountains on their backs. Renchinlkhumbe Soum, Khuvsgul Province, October 2026.",
+      "captionItalic": true
+    },
+    {
+      "type": "paragraph",
+      "runs": [
+        {
+          "text": "In October 2026, I joined Sugar’s family for five days, as part of a documentary the New Nomad Institute is co-producing with Mind the Wild, a remarkable team of filmmakers from Italy. Sugar and his wife Batsuren live in and around Renchinlkhumbe Soum, in Mongolia’s northernmost province, Khuvsgul. They have three children: two daughters at university in Ulaanbaatar and one son in high school in the soum center. But they have many more dependents: several hundred head of livestock. Sustaining a herd that size is relentless work, especially in one of the most remote and unforgiving environments, where winter temperatures can drop to −50°C. We followed them from their autumn home through the valley as far as their interim camp, where they would wait for the agreed date to move to their “permanent” winter camp. "
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "runs": [
+        {
+          "text": "When we met them for the first time, Batsuren was milking the yaks one last time before the migration. Meanwhile, Sugar took down the "
+        },
+        {
+          "text": "ger",
+          "italic": true
+        },
+        {
+          "text": " and readied the oxen for loading with the help of an older couple. The two families had agreed to migrate together because moving through the mountains in late autumn is challenging, even for four. On top of knee-deep snow and the risk of blizzards, the Darkhad Valley held a further threat this year: bears. Brown bears have roamed these forests for centuries. When the harvest was generous, the forest fed them pine nuts and berries, which kept them deep within the trees. This year, the harvest ran thin. Famished and nearing hibernation, they pushed into camps and settlements to scavenge for food. Bears or no bears, the family had to move. "
+        }
+      ]
+    },
+    {
+      "type": "figure",
+      "markerNumbers": [
+        3
+      ],
+      "images": [
+        {
+          "number": 3,
+          "asset": "moving-wild-03",
+          "alt": "Batsuren pours milk into a green bottle beside packed bags and canisters."
+        }
+      ],
+      "caption": "Batsuren stores the last milk before the migration. Renchinlkhumbe Soum, Khuvsgul Province, October 2026.",
+      "captionItalic": true
+    },
+    {
+      "type": "paragraph",
+      "runs": [
+        {
+          "text": "“We are herders before we are nomads. We only move for our animals,” said Shagai, a herder from Bulgan Province I met this summer. I kept coming back to those words during the migration. Herders tend their herd as carefully as they tend their kin. The order in which the animals are loaded matters a great deal. A family’s altar and valuables always go on the first ox, the hearth and roof ring of the "
+        },
+        {
+          "text": "ger",
+          "italic": true
+        },
+        {
+          "text": " on the second, and so on down the line. The first oxen in line are the best trained and most docile, because they carry what the family treasures most"
+        },
+        {
+          "text": ".",
+          "italic": true
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "runs": [
+        {
+          "text": "When their children were small, Batsuren recalled, the family loaded them onto either side of a steadfast ox and set off. Surely, the most treasured load of all. They entrusted the lives of their children to an animal. Trust like that takes years to build. Training an ox to carry a load starts when the animal is about two years old and never really stops. An ox left idle grows stubborn: one of the oxen that had rested all summer threw off its load at least three times."
+        }
+      ]
+    },
+    {
+      "type": "figure",
+      "markerNumbers": [
+        4,
+        5
+      ],
+      "images": [
+        {
+          "number": 4,
+          "asset": "moving-wild-04",
+          "alt": "Two people secure blankets and a red chest to a black-and-white ox in falling snow."
+        },
+        {
+          "number": 5,
+          "asset": "moving-wild-05",
+          "alt": "A person in a pink deel steadies a pack on a dark ox among snowy trees and other livestock."
+        }
+      ],
+      "caption": "It takes two to pack an ox. After the Khoridol Pass, Darkhad Valley, Khuvsgul Province, October 2026.",
+      "captionItalic": true
+    },
+    {
+      "type": "paragraph",
+      "runs": [
+        {
+          "text": "If you ask a herder what time they will reach camp, you will most likely be met with a familiar response: "
+        },
+        {
+          "text": "tenger medne",
+          "italic": true
+        },
+        {
+          "text": ", the sky knows. On migration, you never promise time. You have to remain adaptable and follow the pace of your animals and the weather. On our last day, we changed course. A bear had been seen near our destination, and a dead wild boar was found close by. Word like this travels fast among neighbors and kin. Despite little to no phone signal, they always find a way to relay urgent news, whether by riding over in person or climbing to the top of a hill for a sliver of connection. Ours, admittedly, came by Starlink. Perhaps it’s no surprise that Mongolia ranked first among 142 countries for social connectedness in a 2023 Gallup survey. "
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "runs": [
+        {
+          "text": "I felt this connection most when we all gathered in the "
+        },
+        {
+          "text": "ger",
+          "italic": true
+        },
+        {
+          "text": " in the evenings. Most nights were quiet. The uncles would smoke, and bodies tired from hours in the saddle became one with the ground. Sometimes I would slip in early just to sit by the stove and warm my frozen feet while someone was still outside checking on the herd. After the hardest day of the journey, we stopped to let the animals rest. All of us gladly did the same. That night, thirteen of us sat knee to knee in a small "
+        },
+        {
+          "text": "ger",
+          "italic": true
+        },
+        {
+          "text": ", passing limoncello and vodka, trading Italian songs for Mongolian ones. Like the open steppe that surrounds it, a "
+        },
+        {
+          "text": "ger",
+          "italic": true
+        },
+        {
+          "text": " has no interior walls and no corners to retreat into. Everyone faces one another, gathered around the hearth. The "
+        },
+        {
+          "text": "ger",
+          "italic": true
+        },
+        {
+          "text": " is built for togetherness.  "
+        }
+      ]
+    },
+    {
+      "type": "figure",
+      "markerNumbers": [
+        6
+      ],
+      "images": [
+        {
+          "number": 6,
+          "asset": "moving-wild-06",
+          "alt": "A seated herder and two people beside a motorcycle look out from a grove of leafless trees."
+        }
+      ],
+      "caption": "Scanning the valley for the herd. Renchinlkhumbe Soum, Khuvsgul Province, October 2026.",
+      "captionItalic": true
+    },
+    {
+      "type": "paragraph",
+      "runs": [
+        {
+          "text": "Outside, there are no fences either. Mongolian herders rarely confine their herds unless they’re at a seasonal camp or the cows need milking. During migration, the animals roam freely along the route and beside the camp. This means someone must keep the animals close and away from the danger of wolves, thieves, blizzards, or even their own urge to wander. One morning, Batsuren rode for hours before she found her cows, which had drifted into the woods. "
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "runs": [
+        {
+          "text": "Midway through our journey, we reached the most demanding stretch of the migration: the Khoridol Pass, a steep, narrow climb that stretched over five kilometers. Families often pray for good weather and the sky’s blessing before crossing the pass. As we made the ascent behind hundreds of yaks, sheep, goats, and horses, everyone moved carefully and quietly. The only sound echoing through the mountains was the herders chanting “"
+        },
+        {
+          "text": "höög, höög",
+          "italic": true
+        },
+        {
+          "text": ",” a herding call encouraging the animals to keep moving."
+        }
+      ]
+    },
+    {
+      "type": "figure",
+      "markerNumbers": [
+        7
+      ],
+      "images": [
+        {
+          "number": 7,
+          "asset": "moving-wild-07",
+          "alt": "A long line of livestock climbs a winding track through a snow-covered mountain pass."
+        }
+      ],
+      "caption": "Hundreds of hooves up the Khoridol Pass, Darkhad Valley, Khuvsgul Province, October 2026.",
+      "captionItalic": true
+    },
+    {
+      "type": "paragraph",
+      "runs": [
+        {
+          "text": "The herders’ call felt like a prayer. A numinous feeling washed over me, an overwhelming sense of oneness with the untouched wilderness in front of me and the pale palomino horse that was carrying me through it. An almost forgotten sense of smallness was unearthed, in the best way possible. I felt small as a physical being and expansive as a soul, what the philosopher Gaston Bachelard called intimate immensity, the moment when the vastness of the world and the space within us merge. It felt like coming home to myself."
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "runs": [
+        {
+          "text": "At the top of the pass stood the Khoridol Ovoo, a sacred stone cairn. We circumambulated it three times, added stones, burned juniper incense, and offered milk and grains to the land spirits. Thankful for the past and hopeful for the future, we expressed our gratitude for a safe crossing and entrusted the road ahead to the mountains. Within thirty minutes of crossing, the first blizzard of the trip descended. We felt as if the sky had been watching over us the entire time."
+        }
+      ]
+    },
+    {
+      "type": "figure",
+      "markerNumbers": [
+        8
+      ],
+      "images": [
+        {
+          "number": 8,
+          "asset": "moving-wild-08",
+          "alt": "A distant line of livestock and riders crosses an expanse of snow below a mountain slope."
+        }
+      ],
+      "caption": "By the will of the sky. Darkhad Valley, Khuvsgul Province, October 2026.",
+      "captionItalic": true
+    },
+    {
+      "type": "paragraph",
+      "runs": [
+        {
+          "text": "A migration, like herding life itself, is an act of reciprocity between herder, herd, and land. A relationship much of the world has long forgotten. When the weather can turn within the hour and precarity is your constant companion, reverence comes naturally. The illusion of dominion over nature never takes root. Our customs keep that reciprocity alive. When a family moves, the roof ring of the "
+        },
+        {
+          "text": "ger",
+          "italic": true
+        },
+        {
+          "text": " is carried out facing the road ahead so that the sky will watch over the route. When the "
+        },
+        {
+          "text": "ger",
+          "italic": true
+        },
+        {
+          "text": " goes up again, it must be raised together. And before every move, herders read the sky and the pasture. Tradition, kinship, and adaptability are our compass through the uncertainty that pervades pastoral life."
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "runs": [
+        {
+          "text": "Through these five wild and precious days, I came to admire and understand my herder brothers and sisters. One of the first things Batsuren and I talked about was the blessings of the herd. They feed their animals and the animals feed them in return with milk, meat, and cashmere. Even though they receive no salary or insurance from the government, they put their children through school thanks to their livestock, Batsuren said. Everything they have rests on good grass and a gentle winter and another safe crossing next year. Sky willing, we keep on moving. "
+        }
+      ]
+    },
+    {
+      "type": "figure",
+      "markerNumbers": [
+        9
+      ],
+      "images": [
+        {
+          "number": 9,
+          "asset": "moving-wild-09",
+          "alt": "An open wooden doorway frames snowy peaks and a fence in the valley below."
+        }
+      ],
+      "caption": "The road ahead. Khoridol Saridag range, Khuvsgul Province, October 2026.",
+      "captionItalic": true
+    },
+    {
+      "type": "paragraph",
+      "runs": [
+        {
+          "text": "Acknowledgment:",
+          "bold": true
+        },
+        {
+          "text": " My deepest gratitude to our local team for keeping us safe, warm, and well-fed. And above all, to both families for welcoming us into their lives."
+        }
+      ]
+    }
+  ],
+  "images": {
+    "moving-wild-01": {
+      "640": {
+        "src": "images/writings/moving-wild-01-640.webp",
+        "width": 640,
+        "height": 480
+      },
+      "1600": {
+        "src": "images/writings/moving-wild-01-1600.webp",
+        "width": 1600,
+        "height": 1201
+      }
+    },
+    "moving-wild-02": {
+      "640": {
+        "src": "images/writings/moving-wild-02-640.webp",
+        "width": 640,
+        "height": 480
+      },
+      "1600": {
+        "src": "images/writings/moving-wild-02-1600.webp",
+        "width": 1600,
+        "height": 1201
+      }
+    },
+    "moving-wild-03": {
+      "640": {
+        "src": "images/writings/moving-wild-03-640.webp",
+        "width": 640,
+        "height": 480
+      },
+      "1600": {
+        "src": "images/writings/moving-wild-03-1600.webp",
+        "width": 1600,
+        "height": 1201
+      }
+    },
+    "moving-wild-04": {
+      "640": {
+        "src": "images/writings/moving-wild-04-640.webp",
+        "width": 640,
+        "height": 427
+      },
+      "1600": {
+        "src": "images/writings/moving-wild-04-1600.webp",
+        "width": 1600,
+        "height": 1067
+      }
+    },
+    "moving-wild-05": {
+      "640": {
+        "src": "images/writings/moving-wild-05-640.webp",
+        "width": 640,
+        "height": 427
+      },
+      "1600": {
+        "src": "images/writings/moving-wild-05-1600.webp",
+        "width": 1600,
+        "height": 1067
+      }
+    },
+    "moving-wild-06": {
+      "640": {
+        "src": "images/writings/moving-wild-06-640.webp",
+        "width": 640,
+        "height": 480
+      },
+      "1600": {
+        "src": "images/writings/moving-wild-06-1600.webp",
+        "width": 1600,
+        "height": 1201
+      }
+    },
+    "moving-wild-07": {
+      "640": {
+        "src": "images/writings/moving-wild-07-640.webp",
+        "width": 640,
+        "height": 427
+      },
+      "1600": {
+        "src": "images/writings/moving-wild-07-1600.webp",
+        "width": 1600,
+        "height": 1067
+      }
+    },
+    "moving-wild-08": {
+      "640": {
+        "src": "images/writings/moving-wild-08-640.webp",
+        "width": 640,
+        "height": 427
+      },
+      "1600": {
+        "src": "images/writings/moving-wild-08-1600.webp",
+        "width": 1600,
+        "height": 1067
+      }
+    },
+    "moving-wild-09": {
+      "640": {
+        "src": "images/writings/moving-wild-09-640.webp",
+        "width": 640,
+        "height": 480
+      },
+      "1600": {
+        "src": "images/writings/moving-wild-09-1600.webp",
+        "width": 1600,
+        "height": 1201
+      }
+    }
+  }
+}

@@ -1,0 +1,91 @@
+{
+  "slug": "museum-of-erasure",
+  "title": "museum of erasure",
+  "kind": "poem",
+  "source": {
+    "documentId": "1VYtib_7AmfN6sVzUYoEYD1o2sWkpvQ4xpZspNxtPMcI",
+    "tabId": "t.7qej8a9sep2u",
+    "revisionId": "AHj4eMQ5Mb-5dlF5uSaJ8cu5jUr9_6s7yeKYwpBiQgRFO1MSWTY3NDYh3zEHB31UpI57LHPBQ08-O3usk4SYMSkLW1JjERgHNT8uzA08RW8"
+  },
+  "blocks": [
+    {
+      "type": "paragraph",
+      "runs": [
+        {
+          "text": "space , space makes it easier to tell some stories\nit gives time for skin to grow back\nit (un)furrows the brow\nthey say three generations down is a good time to recount stories"
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "runs": [
+        {
+          "text": "2018, i walk through the memorial museum\nmindlessly following a history assignment\nskulls with bullet holes behind glass\noil lamps flickering in a dimly lit room\n1938, painted in red and black \nin the shape of a handgun\nbefore i think to return, the museum comes down\nits wooden walls no match\nfor the glass towers closing in"
+        }
+      ],
+      "blankLinesBefore": 1
+    },
+    {
+      "type": "paragraph",
+      "runs": [
+        {
+          "text": "1938, my great grandpa gives his last breath\nto the Stalinist repression of \nscholars, monks, and leaders\n"
+        },
+        {
+          "text": "i grieve the loss of fertile minds \nand honor my great grandpa’s grace\n",
+          "italic": true
+        },
+        {
+          "text": "what more grace than bowing,\nbowing into the pearl felt "
+        },
+        {
+          "text": "ger",
+          "italic": true
+        },
+        {
+          "text": "\ndancing through the steppes into your bed\noffering your heart to the fire spirits of the hearth\nto reunite with source\ndirt, earth, breath\n"
+        }
+      ],
+      "blankLinesBefore": 1
+    },
+    {
+      "type": "paragraph",
+      "runs": [
+        {
+          "text": "what more generosity than donating the bullet\nback to the hands of the red\nturning lead into grass\nblood into spring water\n"
+        },
+        {
+          "text": "i daydream of an alternate universe",
+          "italic": true
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "runs": [
+        {
+          "text": "what joy and prosperity\nis in the alternate universe\nin which our people survived\neven greater joy\nin the one\nin which our people"
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "runs": [
+        {
+          "text": "Lived"
+        }
+      ],
+      "blankLinesBefore": 1
+    },
+    {
+      "type": "paragraph",
+      "runs": [
+        {
+          "text": "11.22.2022"
+        }
+      ],
+      "blankLinesBefore": 1
+    }
+  ],
+  "images": {}
+}

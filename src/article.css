@@ -9,6 +9,7 @@
 .essay__author { color: var(--ink); }
 .essay__body { font: 20px/1.7 var(--serif); }
 .essay__body > p { max-width: 680px; margin: 0 auto 1.5em; white-space: pre-line; overflow-wrap: anywhere; }
+.essay--poem .essay__body > p { margin-bottom: 0; white-space: pre-wrap; }
 .essay__body a { color: var(--ink); text-decoration: underline; text-decoration-color: var(--muted); text-underline-offset: 3px; overflow-wrap: anywhere; }
 .essay__body a:hover { text-decoration-color: currentColor; }
 .essay__figure { width: 100%; margin: 48px auto 62px; }

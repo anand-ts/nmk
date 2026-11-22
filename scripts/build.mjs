@@ -8,6 +8,7 @@ import { writingExcerpt, renderFeaturedWriting } from './writing-preview.mjs';
 const root = fileURLToPath(new URL('../', import.meta.url));
 const content = JSON.parse(await readFile(path.join(root, 'content/portfolio.json'), 'utf8'));
 const assets = JSON.parse(await readFile(path.join(root, 'content/assets.json'), 'utf8'));
+const projectPhotographs = new Map(content.projects.flatMap(project => project.images.map(image => [image.asset, image])));
 const articles = new Map(await Promise.all(content.writings.filter(writing => writing.article).map(async writing => [writing.article, JSON.parse(await readFile(path.join(root, 'content/writings', `${writing.article}.json`), 'utf8'))])));
 const dist = path.join(root, 'dist');
 const escape = (value = '') => String(value).replace(/[&<>"']/g, (character) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[character]));
@@ -108,11 +109,27 @@ const home = `<main id="main" tabindex="-1">
 const writings = `<main id="main" tabindex="-1" class="writings-layout">
   <div class="writings-intro"><span class="eyebrow">Words & images</span><h1>Writings</h1></div>
   <div class="writing-list">${content.writings.map((writing, index) => {
-    const image = { asset: writing.asset, alt: writing.title === 'The Land Remembers' ? 'A small temple beneath an open sky in the Homeland photographic series.' : 'Loaded yaks in the snowy woodland of the Darkhad Migration series.' };
     const href = writing.article ? `./${writing.article}/` : writing.url;
-    const excerpt = writingExcerpt(writing, articles.get(writing.article));
-    const inner = `<span class="writing__number">${String(index + 1).padStart(2, '0')}</span><div class="writing__body"><div class="writing__meta">${href ? `<span>${escape(writing.publication)}</span><time datetime="${escape(writing.date)}">${escape(writing.displayDate)}</time>` : '<span>Text to come</span>'}</div><h2>${escape(writing.title)}</h2>${writing.subtitle ? `<p>${escape(writing.subtitle)}</p>` : ''}${excerpt ? `<p class="writing__excerpt">${escape(excerpt)}</p>` : ''}${href ? `<span class="writing__action">Read the essay ${arrow}</span>` : ''}</div><span class="writing__thumbnail">${photograph(image, '../', { thumbnail: true })}</span>`;
-    return href ? `<article class="writing"><a class="writing__link" href="${escape(href)}">${inner}</a></article>` : `<article class="writing writing--upcoming"><div class="writing__link">${inner}</div></article>`;
+    const article = articles.get(writing.article);
+    const poem = article?.kind === 'poem';
+    const excerpt = writingExcerpt(writing, article);
+    const image = projectPhotographs.get(writing.asset);
+    if (writing.asset && !image) throw new Error(`Missing writing thumbnail: ${writing.asset}`);
+    const thumbnail = image ? `<span class="writing__thumbnail">${photograph(image, '../', { thumbnail: true })}</span>` : '';
+    const metadata = href
+      ? `${writing.publication ? `<span>${escape(writing.publication)}</span>` : ''}${writing.date ? `<time datetime="${escape(writing.date)}">${escape(writing.displayDate || writing.date)}</time>` : ''}`
+      : '<span>Text to come</span>';
+    const layout = `writing__link${thumbnail ? '' : ' writing__link--text-only'}`;
+    const inner = `<span class="writing__number">${String(index + 1).padStart(2, '0')}</span>
+      <div class="writing__body">
+        ${metadata ? `<div class="writing__meta">${metadata}</div>` : ''}
+        <h2>${escape(writing.title)}</h2>
+        ${writing.subtitle ? `<p>${escape(writing.subtitle)}</p>` : ''}
+        ${excerpt ? `<p class="writing__excerpt${poem ? ' writing__excerpt--poem' : ''}">${escape(excerpt)}</p>` : ''}
+        ${href ? `<span class="writing__action">${poem ? 'Read the poem' : 'Read the essay'} ${arrow}</span>` : ''}
+      </div>
+      ${thumbnail}`;
+    return href ? `<article class="writing"><a class="${layout}" href="${escape(href)}">${inner}</a></article>` : `<article class="writing writing--upcoming"><div class="${layout}">${inner}</div></article>`;
   }).join('\n')}</div>
 </main>`;
 
