@@ -2,6 +2,7 @@
 .essay { width: 100%; max-width: 1000px; margin-inline: auto; }
 .essay__header { max-width: 800px; margin: 0 auto 66px; }
 .essay__back { display: inline-flex; align-items: center; gap: 12px; font: 12px/1.5 var(--sans); color: var(--muted); }
+.essay__back > svg { flex: none; width: 14px; height: 14px; }
 .essay__back:hover, .essay__source:hover { color: var(--ink); }
 .essay__header h1 { margin: 44px 0 22px; font: 400 clamp(42px, 5.5vw, 76px)/1.06 var(--serif); letter-spacing: -.035em; }
 .essay__subtitle { max-width: 720px; margin: 0; font: 26px/1.35 var(--serif); letter-spacing: -.015em; }
@@ -25,7 +26,7 @@
 .essay__references a { overflow-wrap: anywhere; word-break: normal; }
 .essay__footer { max-width: 680px; margin: 65px auto 0; padding-top: 26px; border-top: 1px solid var(--line); display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 24px; }
 .essay__source { font: 11px/1.6 var(--sans); color: var(--muted); overflow-wrap: anywhere; }
-.essay__source span { margin-left: 6px; }
+.essay__source > svg { width: 12px; height: 12px; margin-left: 6px; vertical-align: middle; }
 
 @media (max-width: 760px) {
   .article-layout { padding: 30px 0 62px; }

@@ -81,7 +81,7 @@ for (const writing of content.writings.filter(item => item.article)) {
 }
 assert(!documents.get('contact/index.html').includes('site-footer'), 'Contact should remain blank below navigation');
 assert(!/<(?:p|form|button|img)\b/.test(documents.get('contact/index.html').split('<main')[1].split('</main>')[0]), 'Contact body should remain blank');
-for (const filename of ['src/main.js', 'src/gallery.js', 'src/theme.js', 'src/theme-init.js', 'src/motion.js', 'src/film.js', 'scripts/build.mjs', 'scripts/render-writing.mjs', 'scripts/render-project.mjs', 'scripts/writing-preview.mjs', 'scripts/serve.mjs']) {
+for (const filename of ['src/main.js', 'src/gallery.js', 'src/theme.js', 'src/theme-init.js', 'src/motion.js', 'src/film.js', 'scripts/build.mjs', 'scripts/render-writing.mjs', 'scripts/render-project.mjs', 'scripts/writing-preview.mjs', 'scripts/icons.mjs', 'scripts/serve.mjs']) {
   const check = spawnSync(process.execPath, ['--check', path.join(root, filename)], { encoding: 'utf8' });
   assert.equal(check.status, 0, check.stderr);
 }

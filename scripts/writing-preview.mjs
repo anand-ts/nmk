@@ -1,3 +1,5 @@
+import { arrowIcon } from './icons.mjs';
+
 const EXCERPT_LIMIT = 350;
 const escape = (value = '') => String(value ?? '').replace(/[&<>"']/g, (character) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[character]));
 
@@ -58,7 +60,7 @@ export function renderFeaturedWriting(writing, article, prefix = './') {
   return `<section class="writing-feature" aria-labelledby="writing-feature-title">
     <div class="writing-feature__intro">
       <h2 id="writing-feature-title">Writings</h2>
-      <a class="writing-feature__all" href="${escape(prefix + 'writings/')}">All writings <span aria-hidden="true">↗</span></a>
+      <a class="writing-feature__all" href="${escape(prefix + 'writings/')}">All writings ${arrowIcon('up-right')}</a>
     </div>
     <a class="writing-feature__link${photo ? '' : ' writing-feature__link--text-only'}" href="${escape(href)}">
       ${photo}
@@ -67,7 +69,7 @@ export function renderFeaturedWriting(writing, article, prefix = './') {
         <h3>${escape(writing.title || article?.title)}</h3>
         ${subtitle ? `<span class="writing-feature__subtitle">${escape(subtitle)}</span>` : ''}
         ${excerpt ? `<p class="writing-feature__excerpt">${escape(excerpt)}</p>` : ''}
-        <span class="writing-feature__action">Read the essay <span aria-hidden="true">↗</span></span>
+        <span class="writing-feature__action">Read the essay ${arrowIcon('up-right')}</span>
       </div>
     </a>
   </section>`;

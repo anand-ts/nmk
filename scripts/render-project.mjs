@@ -1,3 +1,5 @@
+import { arrowIcon } from './icons.mjs';
+
 const escape = (value = '') => String(value ?? '').replace(/[&<>"']/g, (character) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[character]));
 
 /** Render a complete project overview using the shared photograph viewer. */
@@ -6,7 +8,7 @@ export function renderProjectGallery(project, { prefix = '../../', photograph } 
   const images = project.images || [];
   const total = String(images.length).padStart(2, '0');
   const homeHref = `${prefix}#${encodeURIComponent(project.id)}`;
-  const backLink = `<a class="project-gallery__back" href="${escape(homeHref)}"><span aria-hidden="true">←</span> Back to Home</a>`;
+  const backLink = `<a class="project-gallery__back" href="${escape(homeHref)}">${arrowIcon('left')} Back to Home</a>`;
   const figures = images.map((image, index) => `<figure class="project-grid__item">
     ${photograph(image, prefix, { lightbox: true, series: project.id, grid: true, eager: index === 0 })}
     <figcaption><span class="project-grid__caption">${escape(image.caption)}</span><span class="project-grid__index">${String(index + 1).padStart(2, '0')} / ${total}</span></figcaption>

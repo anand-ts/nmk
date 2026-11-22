@@ -1,3 +1,5 @@
+import { arrowIcon } from './icons.mjs';
+
 const escape = (value = '') => String(value ?? '').replace(/[&<>"']/g, (character) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[character]));
 
 function safeHref(value) {
@@ -38,7 +40,7 @@ function renderFigure(block, article, prefix) {
     const alt = image.alt || block.alt || block.caption || `${article.title}, photograph ${image.number ?? index + 1}`;
     return `<button class="photograph essay__photo" type="button" data-lightbox data-src="${escape(prefix + large.src)}" data-alt="${escape(alt)}" data-caption="${escape(block.caption || '')}" data-series="${escape('essay-' + article.slug)}" aria-label="Enlarge photograph: ${escape(alt)}">
       <img src="${escape(prefix + large.src)}" srcset="${escape(prefix + small.src)} ${small.width}w, ${escape(prefix + large.src)} ${large.width}w" sizes="${sizes}" width="${large.width}" height="${large.height}" alt="${escape(alt)}" loading="lazy" decoding="async">
-      <span class="photograph__enlarge" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M5 19 19 5M5 5h14v14" stroke="currentColor" stroke-width="1.2"/></svg></span>
+      <span class="photograph__enlarge" aria-hidden="true">${arrowIcon('up-right')}</span>
     </button>`;
   }).join('\n');
   return `<figure class="essay__figure${paired ? ' essay__figure--paired' : ''}" data-marker-numbers="${escape(markerNumbers.join(','))}">
@@ -73,15 +75,15 @@ export function renderWritingArticle(article, prefix = '../../') {
   return `<main id="main" tabindex="-1" class="article-layout">
     <article class="essay${poem ? ' essay--poem' : ''}" aria-labelledby="essay-title">
       <header class="essay__header">
-        <a class="essay__back" href="../"><span aria-hidden="true">←</span> Writings</a>
+        <a class="essay__back" href="../">${arrowIcon('left')} Writings</a>
         <h1 id="essay-title">${escape(article.title)}</h1>
         ${article.subtitle ? `<p class="essay__subtitle">${escape(article.subtitle)}</p>` : ''}
         ${metadata ? `<div class="essay__meta">${metadata}</div>` : ''}
       </header>
       <div class="essay__body">${blocks}</div>
       <footer class="essay__footer">
-        <a class="essay__back" href="../"><span aria-hidden="true">←</span> Back to Writings</a>
-        ${publicationUrl ? `<a class="essay__source" href="${escape(publicationUrl)}">Published version${publication.name ? ` at ${escape(publication.name)}` : ''} <span aria-hidden="true">↗</span></a>` : ''}
+        <a class="essay__back" href="../">${arrowIcon('left')} Back to Writings</a>
+        ${publicationUrl ? `<a class="essay__source" href="${escape(publicationUrl)}">Published version${publication.name ? ` at ${escape(publication.name)}` : ''} ${arrowIcon('up-right')}</a>` : ''}
       </footer>
     </article>
   </main>`;

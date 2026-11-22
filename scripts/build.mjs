@@ -4,6 +4,7 @@ import { fileURLToPath } from 'node:url';
 import { renderWritingArticle } from './render-writing.mjs';
 import { renderProjectGallery } from './render-project.mjs';
 import { writingExcerpt, renderFeaturedWriting } from './writing-preview.mjs';
+import { arrowIcon } from './icons.mjs';
 
 const root = fileURLToPath(new URL('../', import.meta.url));
 const content = JSON.parse(await readFile(path.join(root, 'content/portfolio.json'), 'utf8'));
@@ -12,7 +13,7 @@ const projectPhotographs = new Map(content.projects.flatMap(project => project.i
 const articles = new Map(await Promise.all(content.writings.filter(writing => writing.article).map(async writing => [writing.article, JSON.parse(await readFile(path.join(root, 'content/writings', `${writing.article}.json`), 'utf8'))])));
 const dist = path.join(root, 'dist');
 const escape = (value = '') => String(value).replace(/[&<>"']/g, (character) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[character]));
-const arrow = '<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 19 19 5M5 5h14v14" stroke="currentColor" stroke-width="1.2"/></svg>';
+const arrow = arrowIcon('up-right');
 
 function photograph(image, prefix, { eager = false, className = '', lightbox = false, series = '', thumbnail = false, grid = false, href = '', linkLabel = '' } = {}) {
   const sizes = assets[image.asset];
@@ -65,7 +66,7 @@ function frame(page, body, options = {}) {
       <nav class="site-nav" aria-label="Main navigation">${nav}<button class="theme-toggle" data-theme-toggle type="button" aria-label="Dark mode" aria-pressed="false" title="Switch to dark mode"><svg class="theme-toggle__moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20.5 13.1A8.7 8.7 0 0 1 10.9 3.5 8.8 8.8 0 1 0 20.5 13.1Z"/></svg><svg class="theme-toggle__sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="3.7"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"/></svg></button></nav>
     </header>
     ${body}
-    ${page === 'contact' ? '' : `<footer class="site-footer"><span>© ${escape(content.name)}</span><a href="#top">Back to top <span aria-hidden="true">↑</span></a></footer>`}
+    ${page === 'contact' ? '' : `<footer class="site-footer"><span>© ${escape(content.name)}</span><a href="#top">Back to top ${arrowIcon('up')}</a></footer>`}
   </div>
 </body>
 </html>
@@ -83,11 +84,11 @@ function projectSection(project, index) {
   return `<section class="project" id="${escape(project.id)}" aria-labelledby="${escape(project.id)}-title">
     <aside class="project__aside">
       <div class="eyebrow"><span>${number}</span><span>${escape(project.category)}</span></div>
-      <h2 id="${escape(project.id)}-title"><a class="project__title-link" href="${projectHref}">${escape(project.title)} <span aria-hidden="true">↗</span></a></h2>
+      <h2 id="${escape(project.id)}-title"><a class="project__title-link" href="${projectHref}">${escape(project.title)} ${arrow}</a></h2>
       ${project.description ? `<p class="project__description">${escape(project.description)}</p>` : ''}
       <p class="project__selection">${project.images.length} photographs</p>
       <nav class="project-index" aria-label="Photographic series">
-        ${content.projects.map((item, itemIndex) => `<a href="./projects/${escape(item.id)}/"${item.id === project.id ? ' class="project-index__link--active"' : ''}><span>${String(itemIndex + 1).padStart(2, '0')}</span><span>${escape(item.title)}</span><span class="project-index__arrow" aria-hidden="true">↗</span></a>`).join('')}
+        ${content.projects.map((item, itemIndex) => `<a href="./projects/${escape(item.id)}/"${item.id === project.id ? ' class="project-index__link--active"' : ''}><span>${String(itemIndex + 1).padStart(2, '0')}</span><span>${escape(item.title)}</span>${arrowIcon('up-right', 'project-index__arrow')}</a>`).join('')}
       </nav>
     </aside>
     <div class="project__gallery">
@@ -99,7 +100,7 @@ function projectSection(project, index) {
 }
 
 const home = `<main id="main" tabindex="-1">
-  <div class="page-intro"><h1>${escape(content.intro)}</h1><div class="page-intro__meta"><span>Selected work</span><span>01 — ${String(content.projects.length).padStart(2, '0')} <span class="intro-arrow" aria-hidden="true">↓</span></span></div></div>
+  <div class="page-intro"><h1>${escape(content.intro)}</h1><div class="page-intro__meta"><span>Selected work</span><span>01 — ${String(content.projects.length).padStart(2, '0')} ${arrowIcon('down', 'intro-arrow')}</span></div></div>
   ${content.bio ? `<p class="bio">${escape(content.bio)}</p>` : ''}
   ${content.projects.map(projectSection).join('\n')}
   ${(content.films || []).map(film => `<section class="film-section" id="${escape(film.id)}" aria-labelledby="${escape(film.id)}-title"><aside class="film-section__aside"><span class="eyebrow">Moving image</span><h2 class="film-section__title" id="${escape(film.id)}-title">${escape(film.title)}</h2><p class="film-section__meta">${escape(film.version || '')}${film.duration ? ` · ${escape(film.duration)}` : ''}</p></aside><figure class="film__frame"><video data-film controls muted playsinline preload="none" poster="./${escape(film.poster)}" width="${film.width}" height="${film.height}" aria-label="${escape(film.title)}${film.version ? ` — ${escape(film.version)}` : ''}">${(film.sources || [{ src: film.src, type: film.type || 'video/mp4' }]).map(source => `<source src="./${escape(source.src)}" type="${escape(source.type)}">`).join('')}${film.captions ? `<track kind="captions" src="./${escape(film.captions)}" srclang="en" label="English" default>` : ''}<p>Your browser cannot play this film. <a href="./${escape(film.src)}">Download the film</a>.</p></video><figcaption><span>${escape(film.version || film.title)}</span><span>${escape(film.duration || '')}</span></figcaption></figure></section>`).join('\n')}
