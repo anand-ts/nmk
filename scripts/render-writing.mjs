@@ -57,7 +57,9 @@ export function renderWritingArticle(article, prefix = '../../') {
   const blocks = (article.blocks || []).map((block, index) => {
     if (block.type === 'paragraph') {
       const spacing = poem ? '\n'.repeat(block.blankLinesBefore ?? 0) : '';
-      return `<p>${spacing}${renderRuns(block.runs)}</p>`;
+      // Give a trailing soft break a visible line before the paragraph ends.
+      const trailingBreak = poem && block.runs?.at(-1)?.text?.endsWith('\n') ? '<br aria-hidden="true">' : '';
+      return `<p>${spacing}${renderRuns(block.runs)}${trailingBreak}</p>`;
     }
     if (block.type === 'figure') return renderFigure(block, article, prefix);
     if (block.type === 'references') {
